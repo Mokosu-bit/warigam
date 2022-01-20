@@ -57,3 +57,6 @@ README〜ER図作成：1/20〆切
 β版をRUNTEQ内リリース(MVP)：2/13〆切
 
 本番リリース：2/28
+
+## 画面遷移図
+https://www.figma.com/file/D0fvPI8ZKFzfRTnjo9cc2d/WariGam?node-id=0%3A1
