@@ -3,6 +3,7 @@ ja:
     # User.model_name.human
     models:
       user: ユーザー
+      event: イベント
     # User.human_attributes_name(:name)
     attributes:
       id: ID
@@ -10,3 +11,13 @@ ja:
       updated_at: 更新日時
       user:
         name: 名前
+      event:
+        title: タイトル
+        mode: モード
+
+  enums:
+    event:
+      mode:
+        share: 割振
+        equal: 平等
+        unit: 単位
