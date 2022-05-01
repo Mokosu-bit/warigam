@@ -18,7 +18,7 @@
 
   <div class="field">
     <%= form.label :mode %>
-    <%= form.number_field :mode %>
+    <%= form.select :mode, Event.modes.keys.map { |k| [I18n.t("enums.event.mode.#{k}"), k] } %>
   </div>
 
   <div class="actions">
