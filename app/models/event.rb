@@ -1,4 +1,8 @@
 class Event < ApplicationRecord
+  has_many :rooms, dependent: :destroy
+  has_many :joining_users, through: :rooms, source: :user
+  belongs_to :user
+
   validates :title, presence: true
   validates :mode, presence: true
 

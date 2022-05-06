@@ -1,4 +1,8 @@
 class User < ApplicationRecord
+  has_many :events
+  has_many :rooms, dependent: :destroy
+  has_many :joining_events, through: :rooms, source: :event
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
