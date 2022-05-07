@@ -2,17 +2,17 @@ class EventsController < ApplicationController
   before_action :set_event, only: %i[ show edit update destroy ]
 
   def index
-    @events = Event.all
+    @events = current_user.events.all
   end
 
   def show; end
 
   def new
-    @event = Event.new
+    @event = current_user.events.build
   end
   
   def create
-    @event = Event.new(event_params)
+    @event = current_user.events.build(event_params)
 
     if @event.save
       redirect_to event_path(@event), success: 'イベントを作成しました'
@@ -38,7 +38,7 @@ class EventsController < ApplicationController
 
   private
     def set_event
-      @event = Event.find(params[:id])
+      @event = current_user.events.find(params[:id])
     end
 
     def event_params
