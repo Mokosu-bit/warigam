@@ -10,5 +10,12 @@
   <%= @event.mode_i18n %>
 </p>
 
+<p>
+  <strong>参加ユーザー</strong>
+  <% @joined_users.each do |joined_user| %>
+    <div><%= joined_user.name %></div>
+  <% end %>
+</p>
+
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>
