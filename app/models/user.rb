@@ -28,4 +28,18 @@ class User < ApplicationRecord
     self.raw_info = raw_info.to_json
     self.save!
   end
+
+  # join event
+
+  def join(event)
+    joining_events << event
+  end
+
+  def cancel(event)
+    joining_events delete event
+  end
+
+  def join?(event)
+    joining_events.include? event
+  end
 end

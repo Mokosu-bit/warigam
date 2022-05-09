@@ -5,7 +5,10 @@ class EventsController < ApplicationController
     @events = current_user.events.all
   end
 
-  def show; end
+  def show
+    @event = Event.find(params[:id])
+    @joined_users = @event.joining_users
+  end
 
   def new
     @event = current_user.events.build
@@ -15,6 +18,7 @@ class EventsController < ApplicationController
     @event = current_user.events.build(event_params)
 
     if @event.save
+      current_user.join(@event)
       redirect_to event_path(@event), success: 'イベントを作成しました'
     else
       render :new
