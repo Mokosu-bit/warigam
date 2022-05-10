@@ -6,7 +6,6 @@ class EventsController < ApplicationController
   end
 
   def show
-    @event = Event.find(params[:id])
     @joined_users = @event.joining_users
   end
 
