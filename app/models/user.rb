@@ -36,7 +36,7 @@ class User < ApplicationRecord
   end
 
   def cancel(event)
-    joining_events delete event
+    joining_events.delete event
   end
 
   def join?(event)
