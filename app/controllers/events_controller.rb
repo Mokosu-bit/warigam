@@ -1,11 +1,12 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: %i[ show edit update destroy ]
+  before_action :set_event, only: %i[ edit update destroy ]
 
   def index
     @events = current_user.events.all
   end
 
   def show
+    @event = Event.find(params[:id])
     @joined_users = @event.joining_users
   end
 
