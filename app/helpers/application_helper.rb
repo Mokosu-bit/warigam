@@ -1,6 +1,6 @@
 module ApplicationHelper
   def qrcode
-    qrcode = RQRCode::QRCode.new("https://warigam.herokuapp.com/")
+    qrcode = RQRCode::QRCode.new("https://warigam.herokuapp.com/events/#{@event.id}")
 
     # NOTE: showing with default options specified explicitly
     svg = qrcode.as_svg(

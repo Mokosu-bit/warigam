@@ -17,6 +17,16 @@
   <% end %>
 </p>
 
+<% if user_signed_in? && current_user.join?(@event) %>
+  <%= link_to event_join_path(@event), method: :delete, data: { confirm: '参加をキャンセルしてもよろしいですか？' } do %>
+    <div class="btn btn-danger">参加キャンセル</div>
+  <% end %>
+<% else %>
+  <%= link_to event_join_path(@event), method: :post do %>
+    <div class="btn btn-primary">参加</div>
+  <% end %>
+<% end %>
+
 <div>
   <%= qrcode.html_safe %>
 </div>
