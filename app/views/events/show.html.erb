@@ -27,7 +27,7 @@
   <% end %>
 <% end %>
 
-<% if created_by?(current_user) %>
+<% if @event.created_by?(current_user) %>
   <div>
     <%= qrcode.html_safe %>
   </div>
