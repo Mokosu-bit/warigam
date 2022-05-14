@@ -1,4 +1,4 @@
-label {
+label[for="read"] {
     display: block;
     width: 320px;
     margin: 0 auto;
@@ -12,6 +12,6 @@ label {
     cursor: pointer;
 }
 
-input {
+input#read {
     display: none;
 }
