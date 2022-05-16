@@ -1,0 +1,36 @@
+<% if @event.mode == 'share' %>
+  <h1>割振</h1>
+  <p>金額</p>
+  <input type="number">円
+  <% @event.joining_users.each do |joining_user| %>
+    <div><%= joining_user.name %></div>
+  <% end %>
+  <div>
+    <%= link_to 'スタート', '#', class: "btn btn-primary" %>
+  </div>
+<% elsif @event.mode == 'equal' %>
+  <h1>平等</h1>
+  <p>金額</p>
+  <input type="number">円
+  <% @event.joining_users.each do |joining_user| %>
+    <div><%= joining_user.name %></div>
+  <% end %>
+  <p>支払人数</p>
+  <input type="number">人
+  <div>
+    <%= link_to 'スタート', '#', class: "btn btn-primary" %>
+  </div>
+
+<% elsif @event.mode == 'unit' %>
+  <h1>単位</h1>
+  <p>金額</p>
+  <input type="number">円
+  <% @event.joining_users.each do |joining_user| %>
+    <div><%= joining_user.name %></div>
+  <% end %>
+  <div>
+    <%= link_to 'スタート', '#', class: "btn btn-primary" %>
+  </div>
+<% else %>
+  <h1>モードなし</h1>
+<% end %>
