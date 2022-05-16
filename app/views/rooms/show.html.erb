@@ -1,0 +1,9 @@
+<% if @event.mode == 'share' %>
+  <div>割振</div>
+<% elsif @event.mode == 'equal' %>
+  <div>平等</div>
+<% elsif @event.mode == 'unit' %>
+  <div>単位</div>
+<% else %>
+  <div>モードなし</div>
+<% end %>
