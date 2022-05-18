@@ -22,6 +22,7 @@ class User < ApplicationRecord
     access_secret = credentials["secret"]
     credentials = credentials.to_json
     name = info["name"]
+    picture_url = info["image"]
   end
 
   def set_values_by_raw_info(raw_info)
