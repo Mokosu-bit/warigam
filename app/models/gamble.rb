@@ -1,0 +1,2 @@
+class Gamble < ApplicationRecord
+end
