@@ -1,6 +1,7 @@
 class Event < ApplicationRecord
   has_many :rooms, dependent: :destroy
   has_many :joining_users, through: :rooms, source: :user
+  has_one :gamble
   belongs_to :user
 
   validates :title, presence: true
