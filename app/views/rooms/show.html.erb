@@ -1,34 +1,30 @@
 <% if @event.mode == 'share' %>
   <h1>割振</h1>
-  <p>金額</p>
-  <input type="number">円
-  <% @event.joining_users.each do |joining_user| %>
-    <div><%= image_tag joining_user.picture_url, class: 'rounded-circle', size: '50x50' %></div>
-    <div><%= joining_user.name %></div>
+  <p>金額:<%= @event.gamble.total_amount %>円</p>
+  <% @joined_users.each do |joined_user| %>
+    <div><%= image_tag joined_user.picture_url, class: 'rounded-circle', size: '50x50' %></div>
+    <div><%= joined_user.name %></div>
   <% end %>
   <div>
     <%= link_to 'スタート', '#', class: "btn btn-primary" %>
   </div>
 <% elsif @event.mode == 'equal' %>
   <h1>平等</h1>
-  <p>金額</p>
-  <input type="number">円
-  <p>支払人数</p>
-  <input type="number">人
-  <% @event.joining_users.each do |joining_user| %>
-    <div><%= image_tag joining_user.picture_url, class: 'rounded-circle', size: '50x50' %></div>
-    <div><%= joining_user.name %></div>
+  <p>金額:<%= @event.gamble.total_amount %>円</p>
+  <p>支払人数:<%= @event.gamble.people_number %>人</p>
+  <% @joined_users.each do |joined_user| %>
+    <div><%= image_tag joined_user.picture_url, class: 'rounded-circle', size: '50x50' %></div>
+    <div><%= joined_user.name %></div>
   <% end %>
   <div>
     <%= link_to 'スタート', '#', class: "btn btn-primary" %>
   </div>
 <% elsif @event.mode == 'unit' %>
   <h1>単位</h1>
-  <p>金額</p>
-  <input type="number">円
-  <% @event.joining_users.each do |joining_user| %>
-    <div><%= image_tag joining_user.picture_url, class: 'rounded-circle', size: '50x50' %></div>
-    <div><%= joining_user.name %></div>
+  <p>金額:<%= @event.gamble.total_amount %>円</p>
+  <% @joined_users.each do |joined_user| %>
+    <div><%= image_tag joined_user.picture_url, class: 'rounded-circle', size: '50x50' %></div>
+    <div><%= joined_user.name %></div>
   <% end %>
   <div>
     <%= link_to 'スタート', '#', class: "btn btn-primary" %>

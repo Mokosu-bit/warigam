@@ -11,8 +11,14 @@
 </p>
 
 <p>
+  <strong>金額:</strong>
+  <%= @event.gamble.total_amount %>
+</p>
+
+<p>
   <strong>参加ユーザー</strong>
   <% @joined_users.each do |joined_user| %>
+    <div><%= image_tag joined_user.picture_url, class: 'rounded-circle', size: '50x50' %></div>
     <div><%= joined_user.name %></div>
   <% end %>
 </p>
