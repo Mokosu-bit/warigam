@@ -12,6 +12,7 @@ class EventsController < ApplicationController
 
   def new
     @event = current_user.events.build
+    @event.build_gamble
   end
   
   def create
@@ -46,6 +47,6 @@ class EventsController < ApplicationController
     end
 
     def event_params
-      params.require(:event).permit(:title, :mode, :user_id)
+      params.require(:event).permit(:title, :mode, gamble_attributes: [:total_amount, :people_number]).merge(user_id: current_user.id)
     end
 end

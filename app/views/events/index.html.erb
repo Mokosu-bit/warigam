@@ -1,10 +1,5 @@
 <p id="notice"><%= notice %></p>
 
-<div>
-  <label for="read">カメラを起動してQRコードを読み取る</label>
-  <input id="read" type="file" name="image" accept="image/*" capture>
-</div>
-
 <% if @events.empty? %>
   <%= link_to new_event_path do %>
     <div class="btn btn-primary">イベントを作成する</div>
