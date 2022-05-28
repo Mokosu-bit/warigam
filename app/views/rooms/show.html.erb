@@ -1,3 +1,5 @@
+<%# ----------- 割振モード ----------- %>
+
 <% if @event.mode == 'share' %>
   <h1>割振</h1>
   <p>金額:<%= @event.gamble.total_amount %>円</p>
@@ -6,8 +8,16 @@
     <div><%= joined_user.name %></div>
   <% end %>
   <div>
-    <%= link_to 'スタート', '#', class: "btn btn-primary" %>
+    <%= link_to 'スタート', mode_event_rooms_path(@event), {method: :post, class: "btn btn-primary #{ 'disabled' if @event.counts > 0 } "} %>
   </div>
+  <% if @event.counts > 0 %>
+    <% @joined_users.each do |joined_user| %>
+      <div><%= image_tag joined_user.picture_url, class: 'rounded-circle', size: '50x50' %><%= @event.gamble.total_amount %></div>
+    <% end %>
+  <% end %>
+
+<%# ----------- 平等モード ----------- %>
+
 <% elsif @event.mode == 'equal' %>
   <h1>平等</h1>
   <p>金額:<%= @event.gamble.total_amount %>円</p>
@@ -17,8 +27,18 @@
     <div><%= joined_user.name %></div>
   <% end %>
   <div>
-    <%= link_to 'スタート', '#', class: "btn btn-primary" %>
+    <%= link_to 'スタート', mode_event_rooms_path(@event), {method: :post, class: "btn btn-primary #{ 'disabled' if @event.counts > 0 } "} %>
   </div>
+  <% if @event.counts > 0 %>
+    <% @selected_users.each do |selected_user| %>
+      <%= image_tag selected_user.picture_url, class: 'rounded-circle', size: '50x50' %>
+      <%= selected_user.name %>
+      <%= @equal_amount %>
+    <% end %>
+  <% end %>
+
+<%# ----------- 単位モード ----------- %>
+
 <% elsif @event.mode == 'unit' %>
   <h1>単位</h1>
   <p>金額:<%= @event.gamble.total_amount %>円</p>
@@ -27,8 +47,14 @@
     <div><%= joined_user.name %></div>
   <% end %>
   <div>
-    <%= link_to 'スタート', '#', class: "btn btn-primary" %>
+    <%= link_to 'スタート', mode_event_rooms_path(@event), {method: :post, class: "btn btn-primary #{ 'disabled' if @event.counts > 0 } "} %>
   </div>
+  <% if @event.counts > 0 %>
+    
+  <% end %>
+
+<%# ----------- モードなし ----------- %>
+
 <% else %>
   <h1>モードなし</h1>
 <% end %>
