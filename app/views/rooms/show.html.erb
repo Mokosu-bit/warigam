@@ -31,9 +31,9 @@
   </div>
   <% if @event.counts > 0 %>
     <% @selected_users.each do |selected_user| %>
-      <%= image_tag selected_user.picture_url, class: 'rounded-circle', size: '50x50' %>
-      <%= selected_user.name %>
-      <%= @equal_amount %>
+      <div><%= image_tag selected_user.picture_url, class: 'rounded-circle', size: '50x50' %></div>
+      <div><%= selected_user.name %></div>
+      <div><%= @equal_amount %></div>
     <% end %>
   <% end %>
 
@@ -50,7 +50,13 @@
     <%= link_to 'スタート', mode_event_rooms_path(@event), {method: :post, class: "btn btn-primary #{ 'disabled' if @event.counts > 0 } "} %>
   </div>
   <% if @event.counts > 0 %>
-    
+    <% @selected_users.each do |selected_user| %>
+      <div><%= image_tag selected_user.picture_url, class: 'rounded-circle', size: '50x50' %></div>
+      <div><%= selected_user.name %></div>
+    <% end %>
+    <% @unit.each do |unit|%>
+      <div><%= unit %></div>
+    <% end %>
   <% end %>
 
 <%# ----------- モードなし ----------- %>
