@@ -15,7 +15,6 @@ class RoomsController < ApplicationController
     # ----------- 単位モード -----------
     elsif @event.mode == "unit"
       @unit = []
-      @selected_users = @joined_users.sample(@unit.length)
       unit_s = @event.gamble.total_amount.to_s.chars
       unit_i = unit_s.map(&:to_i).reverse
       unit_i.each_with_index do |unit, index|
@@ -34,6 +33,7 @@ class RoomsController < ApplicationController
           0
         end
       end
+      @selected_users = @joined_users.sample(@unit.length)
 
     # ----------- モードなし -----------
     else
