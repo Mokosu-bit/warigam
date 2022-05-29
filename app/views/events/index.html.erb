@@ -1,9 +1,15 @@
 <p id="notice"><%= notice %></p>
 
 <% if @events.empty? %>
-  <%= link_to new_event_path do %>
-    <div class="btn btn-primary">イベントを作成する</div>
-  <% end %>
+  <div class="text-center">
+    <div class="row">
+      <div class="col align-self-center">
+        <%= link_to new_event_path do %>
+          <div class="btn btn-primary">イベントを作成する</div>
+        <% end %>
+      </div>
+    </div>
+  </div>
 <% else %>
   <table>
     <thead>
