@@ -1,35 +1,37 @@
 <p id="notice"><%= notice %></p>
 
-<% if @events.empty? %>
-  <div class="text-center">
-    <div class="row">
-      <div class="col align-self-center mt-5 pt-5">
-        <%= link_to new_event_path do %>
-          <div class="btn btn-primary">イベントを作成する</div>
-        <% end %>
-      </div>
-    </div>
-  </div>
-<% else %>
-  <div class="text-center">
-    <div class="row">
-      <div class="col align-self-center mb-3 mt-4">
-        <%= link_to new_event_path do %>
-          <div class="btn btn-primary">イベントを作成する</div>
-        <% end %>
-      </div>
-    </div>
-  </div>
-  <% @events.each do |event| %>
-    <div class="card row mb-5 col-9 mx-auto">
-      <%= link_to event_path(event), class: 'event-link' do %>
-        <div class="card-body flex">
-          <div class="col-12 text-center mt-2">
-            <div class="h4"><%= event.title %></div>
-            <div class="mt-3"><%= event.mode_i18n %></div>
-          </div>
+<div class="container">
+  <% if @events.empty? %>
+    <div class="text-center">
+      <div class="row">
+        <div class="col align-self-center mt-5 pt-5">
+          <%= link_to new_event_path do %>
+            <div class="btn btn-primary">イベントを作成する</div>
+          <% end %>
         </div>
-      <% end %>
+      </div>
     </div>
+  <% else %>
+    <div class="text-center">
+      <div class="row">
+        <div class="col align-self-center mb-3 mt-4">
+          <%= link_to new_event_path do %>
+            <div class="btn btn-primary">イベントを作成する</div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <% @events.each do |event| %>
+      <div class="card row mb-5 col-9 mx-auto">
+        <%= link_to event_path(event), class: 'event-link' do %>
+          <div class="card-body flex">
+            <div class="col-12 text-center mt-2">
+              <div class="h4"><%= event.title %></div>
+              <div class="mt-3"><%= event.mode_i18n %></div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
   <% end %>
-<% end %>
+</div>
