@@ -42,4 +42,5 @@
 <%= link_to 'ルームに入室する', event_rooms_path(@event) %>
 
 <%= link_to 'Edit', edit_event_path(@event) %> |
+<%= link_to 'Delete', event_path, method: :delete, data: { confirm: '削除しますか？' } %>
 <%= link_to 'Back', events_path %>
