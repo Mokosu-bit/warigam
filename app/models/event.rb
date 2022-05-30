@@ -8,7 +8,7 @@ class Event < ApplicationRecord
   validates :title, presence: true
   validates :mode, presence: true
 
-  enum mode: { share: 0, equal: 1, unit: 2 }
+  enum mode: { equal: 0, unit: 1 }
 
   def created_by?(user)
     return false unless user
