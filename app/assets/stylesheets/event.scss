@@ -1,17 +1,22 @@
-label[for="read"] {
-    display: block;
-    width: 320px;
-    margin: 0 auto;
-    padding: 10px 0;
-    text-align: center;
-    border: 0;
-    box-shadow: none;
-    color: #ffffff;
-    font-size: 1rem;
-    background-color: #00c2bc;
-    cursor: pointer;
+.background {
+  background-image: image-url('warigam.PNG');
+  height: 750px;
+  background-size: cover;
 }
 
-input#read {
-    display: none;
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(212, 108, 228, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='3' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+// events#index
+.no-event {
+  padding-top: 50%;
+}
+
+.card-body {
+  color: black;
+}
+
+.event-link {
+  text-decoration: none;
 }

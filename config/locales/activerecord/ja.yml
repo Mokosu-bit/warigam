@@ -4,6 +4,7 @@ ja:
     models:
       user: ユーザー
       event: イベント
+      room: ルーム
     # User.human_attributes_name(:name)
     attributes:
       id: ID
@@ -14,6 +15,9 @@ ja:
       event:
         title: タイトル
         mode: モード
+      gamble:
+        total_amount: 合計金額
+        people_number: 支払い人数
 
   enums:
     event:
