@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', window.viewChange = function viewChange() {
+document.addEventListener('turbolinks:load', window.viewChange = function viewChange() {
   mode = document.getElementById("event_mode").value;
   pn = document.getElementById("people_number");
   if ( mode == 'equal' ) {
