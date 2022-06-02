@@ -25,7 +25,7 @@
           <%= form.label :mode, class: "col-form-label" %>
         </div>
         <div class="h5 mb-3">
-          <%= form.select :mode, Event.modes.keys.map { |k| [I18n.t("enums.event.mode.#{k}"), k] }, class: "col-form-control" %>
+          <%= form.select :mode, Event.modes.keys.map { |k| [I18n.t("enums.event.mode.#{k}"), k] }, {}, class: "col-form-control", onchange: "viewChange()" %>
         </div>
 
         <%= form.fields_for :gamble do |g| %>
@@ -36,11 +36,13 @@
             <%= g.number_field :total_amount, class: "col-form-control col-8 text-center" %>
           </div>
 
-          <div>
-            <%= g.label :people_number, class: "col-form-label" %>
-          </div>
-          <div class="h5 mb-3">
-            <%= g.number_field :people_number, class: "col-form-control col-4 text-center" %>
+          <div id="people_number">
+            <div>
+              <%= g.label :people_number, class: "col-form-label" %>
+            </div>
+            <div class="h5 mb-3">
+              <%= g.number_field :people_number, class: "col-form-control col-4 text-center" %>
+            </div>
           </div>
         <% end %>
 
