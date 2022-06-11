@@ -1,4 +1,5 @@
 class RoomsController < ApplicationController
+  before_action :move_to_signed_in
 
   def show
     @event = Event.find(params[:event_id])
@@ -48,6 +49,14 @@ class RoomsController < ApplicationController
       redirect_to event_rooms_path
     else
       redirect_to event_rooms_path
+    end
+  end
+
+  private
+
+  def move_to_signed_in
+    unless user_signed_in?
+      redirect_to root_path
     end
   end
 end

@@ -1,5 +1,6 @@
 class EventsController < ApplicationController
   before_action :set_event, only: %i[ edit update destroy ]
+  before_action :move_to_signed_in
 
   def index
     @events = current_user.events.all
@@ -44,6 +45,12 @@ class EventsController < ApplicationController
   private
     def set_event
       @event = current_user.events.find(params[:id])
+    end
+
+    def move_to_signed_in
+      unless user_signed_in?
+        redirect_to root_path
+      end
     end
 
     def event_params
