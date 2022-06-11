@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  root "welcome#index"
+  root "events#index"
+  get "/welcome", to: "welcome#index"
   resources :events do
     resource :rooms, only: %i[show] do
       collection do
