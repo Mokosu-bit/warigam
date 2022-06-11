@@ -34,6 +34,7 @@ gem 'bootstrap', '~> 5.1.3'
 # i18n
 gem 'enum_help'
 gem 'rails-i18n', '6.0.0'
+gem 'devise-i18n'
 
 # LINE Login
 gem 'devise'
