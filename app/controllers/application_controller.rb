@@ -1,6 +1,5 @@
 class ApplicationController < ActionController::Base
   before_action :store_current_location, if: :storable_location?
-  before_action :authenticate_user!
 
   private
 

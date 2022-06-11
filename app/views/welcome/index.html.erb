@@ -1,4 +1,11 @@
-<h1>WariGam</h1>
-<p>覚悟はできてる？</p>
+<div class="container justify-content-center text-center">
+  <div class="my-5 py-5">
+    <%= image_tag "warigam_header.png", size: '300x80'%>
+  </div>
 
-<%= link_to image_tag("btn_login_base.png"), user_line_omniauth_authorize_path, method: :post %>
+  <h4>覚悟はできてる？</h4>
+
+  <div class="mt-4">
+    <%= link_to image_tag("btn_login_base.png"), user_line_omniauth_authorize_path, method: :post %>
+  </div>
+</div>
