@@ -5,7 +5,7 @@ class Event < ApplicationRecord
   accepts_nested_attributes_for :gamble
   belongs_to :user
 
-  validates :title, presence: true
+  validates :title, presence: true, length: { maximum: 15 }
   validates :mode, presence: true
 
   enum mode: { equal: 0, unit: 1 }

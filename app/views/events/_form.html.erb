@@ -30,6 +30,7 @@
 
         <%= form.fields_for :gamble do |g| %>
           <div>
+            <i class="fa-solid fa-coins"></i>
             <%= g.label :total_amount, class: "col-form-label" %>
           </div>
           <div class="h5 mb-3">
@@ -38,6 +39,7 @@
 
           <div id="people_number">
             <div>
+              <i class="fa-solid fa-person"></i>
               <%= g.label :people_number, class: "col-form-label" %>
             </div>
             <div class="h5 mb-3">
