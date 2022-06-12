@@ -10,6 +10,8 @@ class Event < ApplicationRecord
 
   enum mode: { equal: 0, unit: 1 }
 
+  scope :under, -> { where("created_at > ?", Time.current-30.minutes) }
+
   def created_by?(user)
     return false unless user
 

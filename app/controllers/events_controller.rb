@@ -3,7 +3,7 @@ class EventsController < ApplicationController
   before_action :move_to_signed_in
 
   def index
-    @events = current_user.events.all
+    @events = current_user.events.under
   end
 
   def show
@@ -49,7 +49,7 @@ class EventsController < ApplicationController
 
     def move_to_signed_in
       unless user_signed_in?
-        redirect_to "welcome#index" 
+        redirect_to welcome_path 
       end
     end
 

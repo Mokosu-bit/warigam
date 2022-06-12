@@ -56,7 +56,7 @@ class RoomsController < ApplicationController
 
   def move_to_signed_in
     unless user_signed_in?
-      redirect_to "events#index"
+      redirect_to welcome_path
     end
   end
 end
