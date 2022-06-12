@@ -3,7 +3,7 @@ class EventsController < ApplicationController
   before_action :move_to_signed_in
 
   def index
-    @events = current_user.events.all
+    @events = current_user.events.under
   end
 
   def show
