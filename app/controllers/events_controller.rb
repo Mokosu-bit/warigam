@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: %i[ edit update destroy ]
+  before_action :set_event, only: %i[ show edit update destroy ]
   before_action :move_to_signed_in
 
   def index
@@ -7,7 +7,6 @@ class EventsController < ApplicationController
   end
 
   def show
-    @event = Event.find(params[:id])
     @joined_users = @event.joining_users
   end
 
@@ -44,7 +43,7 @@ class EventsController < ApplicationController
 
   private
     def set_event
-      @event = current_user.events.find(params[:id])
+      @event = Event.find(params[:id])
     end
 
     def move_to_signed_in
