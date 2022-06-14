@@ -7,9 +7,11 @@
     <div><%= image_tag joined_user.picture_url, class: 'rounded-circle', size: '50x50' %></div>
     <div><%= joined_user.name %></div>
   <% end %>
-  <div>
-    <%= link_to 'スタート', mode_event_rooms_path(@event), {method: :post, class: "btn btn-primary #{ 'disabled' if @event.counts > 0 } "} %>
-  </div>
+  <% if @event.created_by?(current_user) %>
+    <div>
+      <%= link_to 'スタート', mode_event_rooms_path(@event), {method: :post, class: "btn btn-primary #{ 'disabled' if @event.counts > 0 }", data: { confirm: '始めますか？' }} %>
+    </div>
+  <% end %>
   <% if @event.counts > 0 %>
     <% @joined_users.each do |joined_user| %>
       <div><%= image_tag joined_user.picture_url, class: 'rounded-circle', size: '50x50' %><%= @event.gamble.total_amount %></div>
@@ -45,9 +47,11 @@
         </div>
       <% end %>
     </div>
-    <div class="mb-3">
-      <%= link_to 'スタート', mode_event_rooms_path(@event), {method: :post, class: "btn btn-primary #{ 'disabled' if @event.counts > 0 } "} %>
-    </div>
+    <% if @event.created_by?(current_user) %>
+      <div class="mb-3">
+        <%= link_to 'スタート', mode_event_rooms_path(@event), {method: :post, class: "btn btn-primary #{ 'disabled' if @event.counts > 0 }", data: { confirm: '始めますか？' }} %>
+      </div>
+    <% end %>
     <div class="row mt-4 mb-3">
       <% if @event.counts > 0 %>
         <% @selected_users.each do |selected_user| %>
@@ -86,9 +90,11 @@
         </div>
       <% end %>
     </div>
-    <div class="mb-3">
-      <%= link_to 'スタート', mode_event_rooms_path(@event), {method: :post, class: "btn btn-primary #{ 'disabled' if @event.counts > 0 }"} %>
-    </div>
+    <% if @event.created_by?(current_user) %>
+      <div class="mb-3">
+        <%= link_to 'スタート', mode_event_rooms_path(@event), {method: :post, class: "btn btn-primary #{ 'disabled' if @event.counts > 0 }", data: { confirm: '始めますか？' }} %>
+      </div>
+    <% end %>
     <div class="row mt-4">
       <% if @event.counts > 0 %>
         <div class="col-6">
