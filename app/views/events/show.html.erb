@@ -50,10 +50,23 @@
           <div class="btn btn-primary">ルームに入室する</div>
         <% end %>
       </div>
+      
+      <div class="row justify-content-center my-4">
+        <% if @event.created_by?(current_user) %>
+          <div class="col-4">
+            <%= link_to edit_event_path(@event), class: "h2 text-center" do %>
+              <i class="fa-solid fa-pen-to-square"></i>
+            <% end %>
+          </div>
+          <div class="col-4">
+            <%= link_to event_path, method: :delete, data: { confirm: 'イベントを削除してよろしいですか？' }, class: 'col-auto h2 hover-target text-center simple-a-tag' do %>
+              <i class="fa-solid fa-trash"></i>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
 
       <div>
-        <%= link_to 'Edit', edit_event_path(@event) %> |
-        <%= link_to 'Delete', event_path, method: :delete, data: { confirm: '削除しますか？' } %> |
         <%= link_to 'Back', events_path %>
       </div>
     </div>
