@@ -27,11 +27,11 @@
 
       <div class="mb-3">
         <% if user_signed_in? && current_user.join?(@event) %>
-          <%= link_to event_join_path(@event), method: :delete, data: { confirm: '参加をキャンセルしてもよろしいですか？' } do %>
-            <div class="btn btn-danger">参加キャンセル</div>
-          <% end %>
+          <%# <%= link_to event_join_path(@event), method: :delete, data: { confirm: '参加をキャンセルしてもよろしいですか？' } do %1> %>
+          <%#   <div class="btn btn-danger">参加キャンセル</div> %>
+          <%# <% end %1> %>
         <% else %>
-          <%= link_to event_join_path(@event), method: :post do %>
+          <%= link_to event_join_path(@event), method: :post, data: { confirm: '一度参加すると逃げられませんが、よろしいですか？' } do %>
             <div class="btn btn-primary">参加</div>
           <% end %>
         <% end %>
