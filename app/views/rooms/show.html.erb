@@ -7,9 +7,11 @@
     <div><%= image_tag joined_user.picture_url, class: 'rounded-circle', size: '50x50' %></div>
     <div><%= joined_user.name %></div>
   <% end %>
-  <div>
-    <%= link_to 'スタート', mode_event_rooms_path(@event), {method: :post, class: "btn btn-primary #{ 'disabled' if @event.counts > 0 } "} %>
-  </div>
+  <% if @event.created_by?(current_user) %>
+    <div>
+      <%= link_to 'スタート', mode_event_rooms_path(@event), {method: :post, class: "btn btn-primary #{ 'disabled' if @event.counts > 0 }", data: { confirm: '始めますか？' }} %>
+    </div>
+  <% end %>
   <% if @event.counts > 0 %>
     <% @joined_users.each do |joined_user| %>
       <div><%= image_tag joined_user.picture_url, class: 'rounded-circle', size: '50x50' %><%= @event.gamble.total_amount %></div>
@@ -37,31 +39,51 @@
     </div>
 
     <div class="row justify-content-center mb-3">
-      <% @joined_users.each do |joined_user| %>
-        <div class="col-2 my-2">
-          <div><%= image_tag 'warigam_header.png', class: 'rounded-circle', size: '50x50' %></div>
-          <%# <div><%= image_tag joined_user.picture_url, class: 'rounded-circle', size: '50x50' %1></div> %>
-          <div><%= joined_user.name %></div>
+      <div class="col-9">
+        <div class="row justify-content-center">
+          <% @joined_users.each do |joined_user| %>
+            <div class="col-3 my-2">
+              <div><%= image_tag 'warigam_header.png', class: 'rounded-circle', size: '50x50' %></div>
+              <%# <div><%= image_tag joined_user.picture_url, class: 'rounded-circle', size: '50x50' %1></div> %>
+              <div><%= joined_user.name %></div>
+            </div>
+          <% end %>
         </div>
-      <% end %>
+      </div>
     </div>
-    <div class="mb-3">
-      <%= link_to 'スタート', mode_event_rooms_path(@event), {method: :post, class: "btn btn-primary #{ 'disabled' if @event.counts > 0 } "} %>
-    </div>
-    <div class="row mt-4 mb-3">
-      <% if @event.counts > 0 %>
-        <% @selected_users.each do |selected_user| %>
-          <div class="col-6">
-            <div><%= image_tag 'warigam_header.png', class: 'rounded-circle', size: '50x50' %></div>
-            <%# <div><%= image_tag selected_user.picture_url, class: 'rounded-circle', size: '50x50' %1></div> %>
-            <div><%= selected_user.name %></div>
+    <% if @event.created_by?(current_user) %>
+      <div class="mb-3">
+        <%= link_to 'スタート', mode_event_rooms_path(@event), {method: :post, class: "btn btn-primary #{ 'disabled' if @event.counts > 0 }", data: { confirm: '始めますか？' }} %>
+      </div>
+    <% end %>
+    <% if @event.counts > 0 %>
+      <div class="row justify-content-center mb-3">
+        <div class="col-9">
+          <div class="row justify-content-center">
+            <% @selected_users.each do |selected_user| %>
+              <div class="col-3 my-2">
+                <div><%= image_tag 'warigam_header.png', class: 'rounded-circle', size: '50x50' %></div>
+                <%# <div><%= image_tag selected_user.picture_url, class: 'rounded-circle', size: '50x50' %1></div> %>
+                <div><%= selected_user.name %></div>
+              </div>
+            <% end %>
           </div>
-          <div class="col-6 mt-3 h2">
-            <div><%= @equal_amount %>円</div>
+        </div>
+
+        <div class="row justify-content-center h2 my-5">
+          <div class="col-5">
+            1人あたり
           </div>
-        <% end %>
-      <% end %>
-    </div>
+          <div class="col-5">
+            <%= @equal_amount %>円
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-4">
+        <%= link_to 'イベント一覧', events_path %>
+      </div>
+    <% end %>
   </div>
 
 <%# ----------- 単位モード ----------- %>
@@ -78,19 +100,25 @@
       </div>
     </div>
     <div class="row justify-content-center mb-3">
-      <% @joined_users.each do |joined_user| %>
-        <div class="col-2 my-2">
-          <div><%= image_tag 'warigam_header.png', class: 'rounded-circle', size: '50x50' %></div>
-          <%# <div><%= image_tag joined_user.picture_url, class: 'rounded-circle', size: '50x50' %1></div> %>
-          <div><%= joined_user.name %></div>
+      <div class="col-9">
+        <div class="row justify-content-center">
+          <% @joined_users.each do |joined_user| %>
+            <div class="col-3 my-2">
+              <div><%= image_tag 'warigam_header.png', class: 'rounded-circle', size: '50x50' %></div>
+              <%# <div><%= image_tag joined_user.picture_url, class: 'rounded-circle', size: '50x50' %1></div> %>
+              <div><%= joined_user.name %></div>
+            </div>
+          <% end %>
         </div>
-      <% end %>
+      </div>
     </div>
-    <div class="mb-3">
-      <%= link_to 'スタート', mode_event_rooms_path(@event), {method: :post, class: "btn btn-primary #{ 'disabled' if @event.counts > 0 }"} %>
-    </div>
-    <div class="row mt-4">
-      <% if @event.counts > 0 %>
+    <% if @event.created_by?(current_user) %>
+      <div class="mb-3">
+        <%= link_to 'スタート', mode_event_rooms_path(@event), {method: :post, class: "btn btn-primary #{ 'disabled' if @event.counts > 0 }", data: { confirm: '始めますか？' }} %>
+      </div>
+    <% end %>
+    <% if @event.counts > 0 %>
+      <div class="row mt-4">
         <div class="col-6">
           <% @selected_users.each do |selected_user| %>
               <div><%= image_tag 'warigam_header.png', class: 'rounded-circle', size: '50x50' %></div>
@@ -105,8 +133,12 @@
             </div>
           <% end %>
         </div>
-      <% end %>
-    </div>
+
+        <div class="mt-4">
+          <%= link_to 'イベント一覧', events_path %>
+        </div>
+      </div>
+    <% end %>
   </div>
 
 <%# ----------- モードなし ----------- %>

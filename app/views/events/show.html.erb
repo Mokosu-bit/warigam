@@ -16,22 +16,26 @@
       </div>
 
       <div class="row justify-content-center mb-3">
-        <% @joined_users.each do |joined_user| %>
-          <div class="col-2 my-2">
-            <div><%= image_tag 'warigam_header.png', class: 'rounded-circle', size: '50x50' %></div>
-            <%# <div><%= image_tag joined_user.picture_url, class: 'rounded-circle', size: '50x50' %1></div> %>
-            <div><%= joined_user.name %></div>
+        <div class="col-9">
+          <div class="row justify-content-center">
+            <% @joined_users.each do |joined_user| %>
+              <div class="col-3 my-2">
+                <div><%= image_tag 'warigam_header.png', class: 'rounded-circle', size: '50x50' %></div>
+                <%# <div><%= image_tag joined_user.picture_url, class: 'rounded-circle', size: '50x50' %1></div> %>
+                <div><%= joined_user.name %></div>
+              </div>
+            <% end %>
           </div>
-        <% end %>
+        </div>
       </div>
 
       <div class="mb-3">
         <% if user_signed_in? && current_user.join?(@event) %>
-          <%= link_to event_join_path(@event), method: :delete, data: { confirm: '参加をキャンセルしてもよろしいですか？' } do %>
-            <div class="btn btn-danger">参加キャンセル</div>
-          <% end %>
+          <%# <%= link_to event_join_path(@event), method: :delete, data: { confirm: '参加をキャンセルしてもよろしいですか？' } do %1> %>
+          <%#   <div class="btn btn-danger">参加キャンセル</div> %>
+          <%# <% end %1> %>
         <% else %>
-          <%= link_to event_join_path(@event), method: :post do %>
+          <%= link_to event_join_path(@event), method: :post, data: { confirm: '一度参加すると逃げられませんが、よろしいですか？' } do %>
             <div class="btn btn-primary">参加</div>
           <% end %>
         <% end %>
@@ -50,10 +54,23 @@
           <div class="btn btn-primary">ルームに入室する</div>
         <% end %>
       </div>
+      
+      <div class="row justify-content-center my-4">
+        <% if @event.created_by?(current_user) %>
+          <div class="col-4">
+            <%= link_to edit_event_path(@event), class: "h2 text-center" do %>
+              <i class="fa-solid fa-pen-to-square"></i>
+            <% end %>
+          </div>
+          <div class="col-4">
+            <%= link_to event_path, method: :delete, data: { confirm: 'イベントを削除してよろしいですか？' }, class: 'col-auto h2 hover-target text-center simple-a-tag' do %>
+              <i class="fa-solid fa-trash"></i>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
 
       <div>
-        <%= link_to 'Edit', edit_event_path(@event) %> |
-        <%= link_to 'Delete', event_path, method: :delete, data: { confirm: '削除しますか？' } %> |
         <%= link_to 'Back', events_path %>
       </div>
     </div>
