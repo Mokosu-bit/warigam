@@ -48,7 +48,7 @@ class EventsController < ApplicationController
 
     def move_to_signed_in
       unless user_signed_in?
-        redirect_back_or_to welcome_path, success: "ログインに成功しました"
+        redirect_to welcome_path, success: "ログインに成功しました"
       end
     end
 
