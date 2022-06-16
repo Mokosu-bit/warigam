@@ -7,7 +7,7 @@ class EventsController < ApplicationController
   end
 
   def show
-    @joined_users = @event.joining_users
+    @joined_users = @event.joining_users.order(rooms: :asc)
   end
 
   def new

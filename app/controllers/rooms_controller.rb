@@ -3,7 +3,7 @@ class RoomsController < ApplicationController
 
   def show
     @event = Event.find(params[:event_id])
-    @joined_users = @event.joining_users
+    @joined_users = @event.joining_users.order(rooms: :asc)
     
     # ----------- 割振モード -----------
     if @event.mode == "share"
