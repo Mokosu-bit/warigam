@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   resources :events do
     resource :rooms, only: %i[show] do
       collection do
-        post 'mode'
+        post 'equal'
+        post 'unit'
       end
     end
     resource :join, only: %i[create destroy]

@@ -33,7 +33,7 @@
           <%#   <div class="btn btn-danger">参加キャンセル</div> %>
           <%# <% end %1> %>
         <% else %>
-          <%= link_to event_join_path(@event), method: :post, data: { confirm: '一度参加すると逃げられませんが、よろしいですか？' } do %>
+          <%= link_to event_join_path(@event), method: :post, data: { confirm: "参加しますか？\n※一度参加すると逃げられません。" } do %>
             <div class="btn btn-primary">参加</div>
           <% end %>
         <% end %>
@@ -41,14 +41,14 @@
 
       <div class="mb-3">
         <% if @event.created_by?(current_user) %>
-          <div>
+          <div class="mb-3">
             <%= qrcode.html_safe %>
           </div>
+
+          <div class="line-it-button" data-lang="ja" data-type="share-a" data-env="REAL" data-url="https://warigam.herokuapp.com/events/<%= @event.hashid %>" data-color="default" data-size="small" data-count="false" data-ver="3" style="display: none;"></div>
+          <script src="https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js" async="async" defer="defer"></script>
         <% end %>
       </div>
-
-      <div class="line-it-button" data-lang="ja" data-type="share-a" data-env="REAL" data-url="https://warigam.herokuapp.com/events/<%= @event.hashid %>" data-color="default" data-size="small" data-count="false" data-ver="3" style="display: none;"></div>
-      <script src="https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js" async="async" defer="defer"></script>
 
       <div class="mb-3">
         <%= link_to event_rooms_path(@event) do %>

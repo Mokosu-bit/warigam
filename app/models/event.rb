@@ -1,5 +1,6 @@
 class Event < ApplicationRecord
   include Hashid::Rails
+  serialize :results, Array
 
   has_many :rooms, dependent: :destroy
   has_many :joining_users, through: :rooms, source: :user

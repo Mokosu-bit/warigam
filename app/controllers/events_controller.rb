@@ -3,11 +3,11 @@ class EventsController < ApplicationController
   before_action :move_to_signed_in
 
   def index
-    @events = current_user.events.under
+    @events = current_user.events.under.order(events: :asc)
   end
 
   def show
-    @joined_users = @event.joining_users
+    @joined_users = @event.joining_users.order(rooms: :asc)
   end
 
   def new
