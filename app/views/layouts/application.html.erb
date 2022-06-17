@@ -13,8 +13,9 @@
 
   <body>
     <%= render 'shared/header'%>
-    <p id="notice"><%= notice %></p>
-    <p id="alert"><%= alert %></p>
+    <div class="notifications">
+      <%= render 'shared/flash'%>
+    </div>
     <div class="background">
       <%= yield %>
     </div>
