@@ -20,7 +20,7 @@ class EventsController < ApplicationController
 
     if @event.save
       current_user.join(@event)
-      redirect_to event_path(@event), success: 'イベントを作成しました'
+      redirect_to event_path(@event), notice: 'イベントを作成しました'
     else
       render :new
     end
@@ -30,7 +30,7 @@ class EventsController < ApplicationController
 
   def update
     if @event.update(event_params)
-      redirect_to event_path(@event), success: 'イベント内容を更新しました'
+      redirect_to event_path(@event), notice: 'イベント内容を更新しました'
     else
       render :new
     end
@@ -38,7 +38,7 @@ class EventsController < ApplicationController
 
   def destroy
     @event.destroy
-    redirect_to events_path, success: 'イベントを削除しました'
+    redirect_to events_path, notice: 'イベントを削除しました'
   end
 
   private
@@ -48,7 +48,7 @@ class EventsController < ApplicationController
 
     def move_to_signed_in
       unless user_signed_in?
-        redirect_to welcome_path, success: "ログインに成功しました"
+        redirect_to welcome_path
       end
     end
 
