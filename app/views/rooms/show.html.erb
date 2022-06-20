@@ -81,6 +81,11 @@
       </div>
 
       <div class="mt-4">
+        <div class="line-it-button" data-lang="ja" data-type="share-a" data-env="REAL" data-url="https://warigam.herokuapp.com/events/<%= @event.hashid %>" data-color="default" data-size="small" data-count="false" data-ver="3" style="display: none;"></div>
+        <script src="https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js" async="async" defer="defer"></script>
+      </div>
+
+      <div class="mt-4">
         <%= link_to 'イベント一覧', events_path %>
       </div>
     <% end %>
@@ -132,6 +137,11 @@
               <div><%= unit %>円</div>
             </div>
           <% end %>
+        </div>
+
+        <div class="mt-4">
+          <div class="line-it-button" data-lang="ja" data-type="share-a" data-env="REAL" data-url="https://warigam.herokuapp.com/events/<%= @event.hashid %>" data-color="default" data-size="small" data-count="false" data-ver="3" style="display: none;"></div>
+          <script src="https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js" async="async" defer="defer"></script>
         </div>
 
         <div class="mt-4">
