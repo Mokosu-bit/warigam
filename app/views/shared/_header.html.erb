@@ -17,6 +17,10 @@
           <li class="nav-item my-auto mx-2">
             <%= link_to 'イベント作成', new_event_path, class: "nav-link text-white" %>
           </li>
+          <li class="nav-item my-auto mx-2">
+            <%= link_to '使い方', tutorial_path, class: "nav-link text-white" %>
+          </li>
+
           <% if user_signed_in? %>
             <li class="nav-item my-auto mx-2">
               <%= link_to 'ログアウト', destroy_user_session_path, class: "nav-link text-white", method: :delete %>
