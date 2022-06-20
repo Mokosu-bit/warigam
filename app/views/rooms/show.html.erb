@@ -45,7 +45,7 @@
             <div class="col-3 my-2">
               <div><%= image_tag 'warigam_header.png', class: 'rounded-circle', size: '50x50' %></div>
               <%# <div><%= image_tag joined_user.picture_url, class: 'rounded-circle', size: '50x50' %1></div> %>
-              <div><%= joined_user.name %></div>
+              <div><%= joined_user.name.truncate(4, omission: '') %></div>
             </div>
           <% end %>
         </div>
@@ -64,7 +64,7 @@
               <div class="col-3 my-2">
                 <div><%= image_tag 'warigam_header.png', class: 'rounded-circle', size: '50x50' %></div>
                 <%# <div><%= image_tag selected_user.picture_url, class: 'rounded-circle', size: '50x50' %1></div> %>
-                <div><%= result_user.name %></div>
+                <div><%= result_user.name.truncate(4, omission: '') %></div>
               </div>
             <% end %>
           </div>
@@ -106,7 +106,7 @@
             <div class="col-3 my-2">
               <div><%= image_tag 'warigam_header.png', class: 'rounded-circle', size: '50x50' %></div>
               <%# <div><%= image_tag joined_user.picture_url, class: 'rounded-circle', size: '50x50' %1></div> %>
-              <div><%= joined_user.name %></div>
+              <div><%= joined_user.name.truncate(4, omission: '') %></div>
             </div>
           <% end %>
         </div>
@@ -123,7 +123,7 @@
           <% @event.results.each do |result_user| %>
               <div><%= image_tag 'warigam_header.png', class: 'rounded-circle', size: '50x50' %></div>
               <%# <div><%= image_tag selected_user.picture_url, class: 'rounded-circle', size: '50x50' %1></div> %>
-              <div class="mb-4"><%= result_user.name %></div>
+              <div class="mb-4"><%= result_user.name.truncate(4, omission: '') %></div>
           <% end %>
         </div>
         <div class="col-6 mt-2">
