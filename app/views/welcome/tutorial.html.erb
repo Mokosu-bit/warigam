@@ -31,4 +31,19 @@
       <div>指定のモードの割り勘が始まるぞ！</div>
     </div>
   </div>
+
+  <div class="py-5">
+    <% if user_signed_in? %>
+      <div>
+        <%= link_to 'イベント一覧', events_path %>
+      </div>
+    <% else %>
+      <div class="py-3">
+        <%= link_to image_tag("btn_login_base.png"), user_line_omniauth_authorize_path, method: :post %>
+      </div>
+      <div>
+        <%= link_to '戻る', events_path %>
+      </div>
+    <% end %>
+  </div>
 </div>
