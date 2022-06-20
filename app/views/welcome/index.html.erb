@@ -3,9 +3,14 @@
     <%= image_tag "warigam_header.png", size: '300x80'%>
   </div>
 
-  <h4>覚悟はできてる？</h4>
+  <div class="h4 pt-5">覚悟はできてる？</div>
 
-  <div class="mt-4">
+
+  <div class="my-4">
     <%= link_to image_tag("btn_login_base.png"), user_line_omniauth_authorize_path, method: :post %>
+  </div>
+
+  <div class="mb-3">
+    <%= link_to '使い方', tutorial_path %>
   </div>
 </div>
