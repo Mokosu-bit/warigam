@@ -12,10 +12,9 @@ class Event < ApplicationRecord
   accepts_nested_attributes_for :gamble
   belongs_to :user
 
-
   enum mode: { equal: 0, unit: 1 }
 
-  scope :under, -> { where("created_at > ?", Time.current-1.hour) }
+  scope :under, -> { where('created_at > ?', Time.current - 1.hour) }
 
   def created_by?(user)
     return false unless user

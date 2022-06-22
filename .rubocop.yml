@@ -60,6 +60,7 @@ Metrics/MethodLength:
 Metrics/AbcSize:
   Max: 30 # default 15
 
-Metrics/BlockLength:
-  Exclude:
-    - 'lib/tasks/auto_annotate_models.rake'
+#
+Lint/UselessAssignment:
+  Enabled: false
+
