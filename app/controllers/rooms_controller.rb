@@ -48,7 +48,7 @@ class RoomsController < ApplicationController
       event.update(results: joined_users.sample(event.gamble.people_number))
       redirect_to event_rooms_path
     else
-      redirect_to event_rooms_path
+      redirect_to events_path
     end
   end
 
@@ -79,7 +79,7 @@ class RoomsController < ApplicationController
       event.update(results: joined_users.sample(pre_unit.length))
       redirect_to event_rooms_path
     else
-      redirect_to event_rooms_path
+      redirect_to events_path
     end
   end
 
