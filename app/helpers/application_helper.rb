@@ -4,11 +4,11 @@ module ApplicationHelper
 
     # NOTE: showing with default options specified explicitly
     svg = qrcode.as_svg(
-    color: "000",
-    shape_rendering: "crispEdges",
-    module_size: 3,
-    standalone: true,
-    use_path: true
+      color: '000',
+      shape_rendering: 'crispEdges',
+      module_size: 3,
+      standalone: true,
+      use_path: true
     )
   end
 end
