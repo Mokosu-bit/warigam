@@ -43,8 +43,11 @@
         <div class="row justify-content-center">
           <% @joined_users.each do |joined_user| %>
             <div class="col-3 my-2">
-              <%# <div><%= image_tag 'warigam_header.png', class: 'rounded-circle', size: '50x50' %1></div> %>
-              <div><%= image_tag joined_user.picture_url, class: 'rounded-circle', size: '50x50' %></div>
+              <% if joined_user.picture_url.present? %>
+                <div><%= image_tag joined_user.picture_url, class: 'rounded-circle', size: '50x50' %></div>
+              <% else %>
+                <div><%= image_tag 'user-icon.png', class: 'rounded-circle', size: '50x50' %></div>
+              <% end %>
               <div><%= joined_user.name.truncate(4, omission: '') %></div>
             </div>
           <% end %>
@@ -57,13 +60,20 @@
       </div>
     <% end %>
     <% if @event.counts > 0 %>
-      <div class="row justify-content-center mb-3">
+      <div class="row justify-content-center">
+        <div class="h3">結果</div>
+        <div class="col-10 border border-success">
+      </div>
+      <div class="row justify-content-center my-3">
         <div class="col-9">
           <div class="row justify-content-center">
             <% @event.results.each do |result_user| %>
               <div class="col-3 my-2">
-                <%# <div><%= image_tag 'warigam_header.png', class: 'rounded-circle', size: '50x50' %1></div> %>
-                <div><%= image_tag result_user.picture_url, class: 'rounded-circle', size: '50x50' %></div>
+                <% if result_user.picture_url.present? %>
+                  <div><%= image_tag result_user.picture_url, class: 'rounded-circle', size: '50x50' %></div>
+                <% else %>
+                  <div><%= image_tag 'user-icon.png', class: 'rounded-circle', size: '50x50' %></div>
+                <% end %>
                 <div><%= result_user.name.truncate(4, omission: '') %></div>
               </div>
             <% end %>
@@ -71,17 +81,17 @@
         </div>
 
         <div class="row justify-content-center h2 my-5">
-          <div class="col-5">
+          <div class="col-6">
             1人あたり
           </div>
-          <div class="col-5">
+          <div class="col-6">
             <%= @equal_amount %>円
           </div>
         </div>
       </div>
 
       <div class="mt-4">
-        <div class="line-it-button" data-lang="ja" data-type="share-a" data-env="REAL" data-url="https://warigam.herokuapp.com/events/<%= @event.hashid %>" data-color="default" data-size="small" data-count="false" data-ver="3" style="display: none;"></div>
+        <div class="line-it-button" data-lang="ja" data-type="share-a" data-env="REAL" data-url="https://warigam.herokuapp.com/events/<%= @event.hashid %>/rooms" data-color="default" data-size="small" data-count="false" data-ver="3" style="display: none;"></div>
         <script src="https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js" async="async" defer="defer"></script>
       </div>
 
@@ -109,8 +119,11 @@
         <div class="row justify-content-center">
           <% @joined_users.each do |joined_user| %>
             <div class="col-3 my-2">
-              <%# <div><%= image_tag 'warigam_header.png', class: 'rounded-circle', size: '50x50' %1></div> %>
-              <div><%= image_tag joined_user.picture_url, class: 'rounded-circle', size: '50x50' %></div>
+              <% if joined_user.picture_url.present? %>
+                <div><%= image_tag joined_user.picture_url, class: 'rounded-circle', size: '50x50' %></div>
+              <% else %>
+                <div><%= image_tag 'user-icon.png', class: 'rounded-circle', size: '50x50' %></div>
+              <% end %>
               <div><%= joined_user.name.truncate(4, omission: '') %></div>
             </div>
           <% end %>
@@ -123,24 +136,31 @@
       </div>
     <% end %>
     <% if @event.counts > 0 %>
+      <div class="row justify-content-center">
+        <div class="h3">結果</div>
+        <div class="col-10 border border-success">
+      </div>
       <div class="row mt-4">
         <div class="col-6">
           <% @event.results.each do |result_user| %>
-              <%# <div><%= image_tag 'warigam_header.png', class: 'rounded-circle', size: '50x50' %1></div> %>
+            <% if result_user.picture_url.present? %>
               <div><%= image_tag result_user.picture_url, class: 'rounded-circle', size: '50x50' %></div>
+            <% else %>
+              <div><%= image_tag 'user-icon.png', class: 'rounded-circle', size: '50x50' %></div>
+            <% end %>
               <div class="mb-4"><%= result_user.name.truncate(4, omission: '') %></div>
           <% end %>
         </div>
         <div class="col-6 mt-2">
           <% @unit.each do |unit|%>
-            <div class="mt-4 mb-5 pb-3 h2">
+            <div class="mt-3 mb-5 pb-3 h2">
               <div><%= unit %>円</div>
             </div>
           <% end %>
         </div>
 
         <div class="mt-4">
-          <div class="line-it-button" data-lang="ja" data-type="share-a" data-env="REAL" data-url="https://warigam.herokuapp.com/events/<%= @event.hashid %>" data-color="default" data-size="small" data-count="false" data-ver="3" style="display: none;"></div>
+          <div class="line-it-button" data-lang="ja" data-type="share-a" data-env="REAL" data-url="https://warigam.herokuapp.com/events/<%= @event.hashid %>/rooms" data-color="default" data-size="small" data-count="false" data-ver="3" style="display: none;"></div>
           <script src="https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js" async="async" defer="defer"></script>
         </div>
 

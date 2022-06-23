@@ -18,8 +18,11 @@
           <div class="row justify-content-center">
             <% @joined_users.each do |joined_user| %>
               <div class="col-3 my-2">
-                <%# <div><%= image_tag 'warigam_header.png', class: 'rounded-circle', size: '50x50' %1></div> %>
-                <div><%= image_tag joined_user.picture_url, class: 'rounded-circle', size: '50x50' %></div>
+                <% if joined_user.picture_url.present? %>
+                  <div><%= image_tag joined_user.picture_url, class: 'rounded-circle', size: '50x50' %></div>
+                <% else %>
+                  <div><%= image_tag 'user-icon.png', class: 'rounded-circle', size: '50x50' %></div>
+                <% end %>
                 <div><%= joined_user.name.truncate(4, omission: '') %></div>
               </div>
             <% end %>
