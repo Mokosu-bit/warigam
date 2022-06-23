@@ -23,7 +23,7 @@
 
           <% if user_signed_in? %>
             <li class="nav-item my-auto mx-2">
-              <%= link_to 'ログアウト', destroy_user_session_path, class: "nav-link text-white", method: :delete %>
+              <%= link_to 'ログアウト', logout_path, class: "nav-link text-white", method: :delete %>
             </li>
           <% else %>
             <li class="nav-item my-auto mx-2">

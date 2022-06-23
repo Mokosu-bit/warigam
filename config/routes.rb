@@ -12,7 +12,10 @@ Rails.application.routes.draw do
     resource :join, only: %i[create destroy]
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  devise_for :users, controllers: {
+  devise_for :users, :skip => [:sessions, :registrations, :password], controllers: {
     omniauth_callbacks: 'omniauth_callbacks'
   }
+  devise_scope :user do
+    delete 'logout', to: 'devise/sessions#destroy'
+  end
 end
