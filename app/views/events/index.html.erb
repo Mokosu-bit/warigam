@@ -16,22 +16,34 @@
       </div>
     </div>
     <% @events.each do |event| %>
-      <div class="card row mb-5 col-10 mx-auto">
-        <%= link_to event_path(event), class: 'event-link' do %>
-          <div class="card-body flex">
-            <div class="mt-2 row">
-              <div class="col-4">
-                <div class="h5"><%= event.created_at.strftime('%m/%d')%></div>
-                <div class="h5"><%= event.created_at.strftime(' %H:%M')%></div>
-              </div>
-              <div class="col-8">
-                <div class="h4"><%= event.title %></div>
-                <div class="h5"><i class="fa-solid fa-coins"></i> <%= event.gamble.total_amount %>円</div>
-              </div>
+      <% if event.counts.zero? %>
+        <div class="card row mb-5 col-10 mx-auto">
+          <%= link_to event_path(event), class: 'event-link' do %>
+            <div class="card-body flex">
+              <div><%= event.created_at.strftime('%m/%d %H:%M')%></div>
+              <div class="h4 mt-1"><%= event.title %></div>
+              <div class="h5"><i class="fa-solid fa-coins"></i> <%= event.gamble.total_amount %>円</div>
             </div>
+          <% end %>
+        </div>
+      <% else %>
+        <div class="card row mb-5 col-10 mx-auto">
+          <div class="bg-event">
+            <%= link_to event_rooms_path(event), class: 'event-link' do %>
+              <div class="card-body flex">
+                <div><%= event.created_at.strftime('%m/%d %H:%M')%></div>
+                <div class="h4 mt-1"><%= event.title %></div>
+                <div class="h5"><i class="fa-solid fa-coins"></i> <%= event.gamble.total_amount %>円</div>
+                <div class="row">
+                  <div class="col-12">
+                    終了しました
+                  </div>
+                </div>
+              </div>
+            <% end %>
           </div>
-        <% end %>
-      </div>
+        </div>
+      <% end %>
     <% end %>
   <% end %>
 </div>
