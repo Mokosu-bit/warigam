@@ -15,12 +15,12 @@
           <%= form.label :mode, class: "col-form-label" %>
 
           <!-- Button trigger modal -->
-          <i type="button" class="fa-solid fa-circle-info" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          <i type="button" class="fa-solid fa-circle-info" style="color: grey;" data-bs-toggle="modal" data-bs-target="#exampleModal">
           </i>
 
           <!-- Modal -->
           <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">
                   <h5 class="modal-title container text-center" id="exampleModalLabel">モード紹介</h5>
@@ -42,18 +42,32 @@
                     </ul>
                   </div>
                 </div>
-                <div class="tab-content" id="nav-tabContent">
-                  <div class="tab-pane fade show active" id="equal" role="tabpanel" aria-labelledby="equal-tab">
-                    <div class="container justify-content-center">
-                      <div class="h5">できること</div>
-                      <div class="h6">支払い人数の設定によって</br>
-                        ドキドキ感が変わってきます<i class="fas fa-heart faa-pulse animated faa-fast" style="color: red;"></i></div>
-                      <div class="h6">例: 参加人数が6人の場合</div>
-                      <div class="h6"></div>
+
+                <div class="p-2 pb-5" style="background-color: #BDF2D5;">
+                  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable container justify-content-center">
+                    <div class="tab-content" id="nav-tabContent">
+                      <div class="tab-pane fade show active" id="equal" role="tabpanel" aria-labelledby="equal-tab">
+                        <div class="h6">支払い人数の設定によって</br>
+                          ドキドキ感が変わってきます<i class="fas fa-heart faa-pulse animated faa-fast" style="color: red;"></i></div>
+                        <div class="h6">いろんな設定でお楽しみください<i class="fa-solid fa-people-group faa-bounce animated"></i></div>
+                        <div class="mt-5">
+                          <div class="h6">例: 参加人数が6人の場合</div>
+                          <div class="mb-2 pt-4"><%= image_tag 'example.png', size: '240x400'%></div>
+                          <div class="h6">1人だけセーフ</div>
+                          <div class="mb-2 pt-4"><%= image_tag 'example-plus.png', size: '240x400'%></div>
+                          <div class="h6">1人だけアウト</div>
+                        </div>
+                      </div>
+                      <div class="tab-pane fade" id="unit" role="tabpanel" aria-labelledby="unit-tab">
+                        <div class="h6">金額の差が大きく</br>
+                          ドキドキ感ハンパない<i class="fas fa-heart faa-pulse animated faa-fast" style="color: red;"></i></div>
+                        <div class="mt-5">
+                          <div class="h6">例: 参加人数が6人の場合</div>
+                          <div class="mb-2 pt-4"><%= image_tag 'unit-example.png', size: '240x450'%></div>
+                          <div class="h6">単位の数(4人)選ばれます</div>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                  <div class="tab-pane fade" id="unit" role="tabpanel" aria-labelledby="unit-tab">
-                    単位
                   </div>
                 </div>
                 <div class="modal-footer">
@@ -69,7 +83,7 @@
 
         <%= form.fields_for :gamble do |g| %>
           <div>
-            <i class="fa-solid fa-coins"></i>
+            <i class="fa-solid fa-coins" style="color: yellow;"></i>
             <%= g.label :total_amount, class: "col-form-label" %>
           </div>
           <div class="h5 mb-3">
