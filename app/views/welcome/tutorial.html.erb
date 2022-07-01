@@ -9,7 +9,7 @@
   
   <div class="p-2 pb-5" style="background-color: #BDF2D5;">
     <div class="mt-5">
-      <div class="h4">イベントを作成する</div>
+      <div class="h4">割り勘を作成する</div>
       <div class="mb-2"><%= image_tag 'create-event.png', size: '240x400'%></div>
       <div>食事・買い物の際に、お楽しみください。</div>
       <div>※ 作成から1時間後に削除されます。</div>
@@ -38,7 +38,7 @@
   <div class="py-5">
     <% if user_signed_in? %>
       <div>
-        <%= link_to 'イベント一覧', events_path %>
+        <%= link_to '割り勘一覧', events_path %>
       </div>
     <% else %>
       <div class="py-3">
