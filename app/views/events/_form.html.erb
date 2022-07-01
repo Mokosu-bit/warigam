@@ -13,6 +13,69 @@
 
         <div>
           <%= form.label :mode, class: "col-form-label" %>
+
+          <!-- Button trigger modal -->
+          <i type="button" class="fa-solid fa-circle-info" style="color: grey;" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          </i>
+
+          <!-- Modal -->
+          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title container text-center" id="exampleModalLabel">モード紹介</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <div class="row justify-content-center">
+                    <ul class="nav nav-tabs" id="nav-tab" role="tablist">
+                      <li class="nav-item col-6" role="presentation">
+                        <button class="nav-link active m-auto border-0" id="equal-tab" data-bs-toggle="tab" data-bs-target="#equal" type="button" role="tab" aria-controls="equal" aria-selected="true">
+                          平等
+                        </button>
+                      </li>
+                      <li class="nav-item col-6" role="presentation">
+                        <button class="nav-link m-auto border-0" id="unit-tab" data-bs-toggle="tab" data-bs-target="#unit" type="button" role="tab" aria-controls="unit" aria-selected="false">
+                          単位
+                        </button>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="p-2 pb-5" style="background-color: #BDF2D5;">
+                  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable container justify-content-center">
+                    <div class="tab-content" id="nav-tabContent">
+                      <div class="tab-pane fade show active" id="equal" role="tabpanel" aria-labelledby="equal-tab">
+                        <div class="h6">支払い人数の設定によって</br>
+                          ドキドキ感が変わってきます<i class="fas fa-heart faa-pulse animated faa-fast" style="color: red;"></i></div>
+                        <div class="h6">いろんな設定でお楽しみください<i class="fa-solid fa-people-group faa-bounce animated"></i></div>
+                        <div class="mt-5">
+                          <div class="h6">例: 参加人数が6人の場合</div>
+                          <div class="mb-2 pt-4"><%= image_tag 'example.png', size: '240x400'%></div>
+                          <div class="h6">1人だけセーフ</div>
+                          <div class="mb-2 pt-4"><%= image_tag 'example-plus.png', size: '240x400'%></div>
+                          <div class="h6">1人だけアウト</div>
+                        </div>
+                      </div>
+                      <div class="tab-pane fade" id="unit" role="tabpanel" aria-labelledby="unit-tab">
+                        <div class="h6">金額の差が大きく</br>
+                          ドキドキ感ハンパない<i class="fas fa-heart faa-pulse animated faa-fast" style="color: red;"></i></div>
+                        <div class="mt-5">
+                          <div class="h6">例: 参加人数が6人の場合</div>
+                          <div class="mb-2 pt-4"><%= image_tag 'unit-example.png', size: '240x450'%></div>
+                          <div class="h6">単位の数(4人)選ばれます</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="h5 mb-3">
           <%= form.select :mode, Event.modes.keys.map { |k| [I18n.t("enums.event.mode.#{k}"), k] }, {}, class: "col-form-control", onchange: "viewChange()" %>
@@ -20,7 +83,7 @@
 
         <%= form.fields_for :gamble do |g| %>
           <div>
-            <i class="fa-solid fa-coins"></i>
+            <i class="fa-solid fa-coins" style="color: yellow;"></i>
             <%= g.label :total_amount, class: "col-form-label" %>
           </div>
           <div class="h5 mb-3">
