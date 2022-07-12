@@ -15,9 +15,6 @@ import "../stylesheets/application.scss";
 // font-awesomeの読み込み
 import '@fortawesome/fontawesome-free/js/all'
 
-// JSファイル読み込み
-import "./common"
-
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
