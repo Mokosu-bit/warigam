@@ -78,7 +78,7 @@
           </div>
         </div>
         <div class="h5 mb-3">
-          <%= form.select :mode, Event.modes.keys.map { |k| [I18n.t("enums.event.mode.#{k}"), k] }, {}, class: "col-form-control", onchange: "viewChange()" %>
+          <%= form.select :mode, Event.modes.keys.map { |k| [I18n.t("enums.event.mode.#{k}"), k] }, {}, class: "col-form-control", id: "event_mode", onchange: "viewChange()" %>
         </div>
 
         <%= form.fields_for :gamble do |g| %>
@@ -108,4 +108,3 @@
     <% end %>
   </div>
 </div>
-<%= javascript_pack_tag 'event' %>
