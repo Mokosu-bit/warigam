@@ -1,6 +1,4 @@
-function start() {
-  jsonGet();
-}
+var roulette;
 
 async function jsonGet() {
   try {
@@ -14,17 +12,31 @@ async function jsonGet() {
     keyArray.forEach(function(element){
       users.push(items[element].name);
     });
-    console.log(users);
+    // ルーレットを開始
+    function start() {
+      roulette = setInterval(function() {
+        var idx = users[Math.floor(Math.random() * users.length)]; 
+        // ルーレット
+        document.getElementById("roulette").innerHTML = idx;
+      }, 100);
+    }
+    start();
   } catch (err) {
     console.error(err);
   }
 }
 
-function slot() {
-  jsonGet();
+
+// ルーレットを停止
+function stop() {
+  if(roulette) {
+    clearInterval(roulette);
+    console.log(document.getElementById("roulette").innerHTML);
+  }
 }
 
 document.addEventListener('turbolinks:load', function() {
   // クリックイベントを登録
-  btn.onclick = () => { slot(); }; // document.getElementById('btn');を省略
+  st.onclick = () => { jsonGet(); };
+  sp.onclick = () => { stop(); }; 
 })
