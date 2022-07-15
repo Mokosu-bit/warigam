@@ -17,6 +17,7 @@ import '@fortawesome/fontawesome-free/js/all'
 
 // JSファイル読み込み
 import "./event"
+import "./slot"
 
 Rails.start()
 Turbolinks.start()
