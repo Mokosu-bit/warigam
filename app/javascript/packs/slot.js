@@ -10,7 +10,12 @@ async function jsonGet() {
     const keyArray = Object.keys(items);
     const users = []
     keyArray.forEach(function(element){
-      users.push(items[element].name);
+      var name = items[element].name;
+      let len = 4;
+      if(name.length > len) {
+        var name = name.substring(0, len)+'';
+      }
+      users.push(name);
     });
     // ルーレットを開始
     function start() {
