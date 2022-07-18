@@ -33,7 +33,7 @@
       <div class="col-6 my-3">
         支払い人数
       </div>
-      <div class="col-6 my-3">
+      <div class="col-6 my-3" id="member">
         <%= @event.gamble.people_number %>人
       </div>
     </div>
@@ -60,7 +60,6 @@
       </div>
       <div class="my-3">
         <%= link_to 'スタート', equal_event_rooms_path(@event), {method: :post, class: "btn btn-primary #{ 'disabled' if @event.counts > 0 }", remote: true, id: "st"} %>
-        <%= link_to 'ストップ', equal_event_rooms_path(@event), {method: :post, class: "btn btn-danger #{ 'disabled' if @event.counts > 0 }", remote: true, id: "sp"} %>
       </div>
     <% end %>
     <% if @event.counts > 0 %>

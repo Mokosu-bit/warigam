@@ -40,8 +40,33 @@ function stop() {
   }
 }
 
+async function loop() {
+  try {
+    const url = location.href;
+    const res = await axios.get(url.replace('/rooms','.json'));
+    const items = JSON.parse(JSON.stringify(res.data));
+    const membersCounts = Object.values(items)[3];
+    // jsonを文字列化してparse
+    let count = 0;
+    const countUp = () => {
+      if(count < membersCounts) {
+        jsonGet();
+      }
+      stop();
+      count++;
+    }
+    const intervalId = setInterval(() => {
+      countUp();
+      if(count > membersCounts) {　
+        clearInterval(intervalId);　//intervalIdをclearIntervalで指定している
+      }}, 5000);
+  } catch (err) {
+    console.log(err);
+  }
+}
 document.addEventListener('turbolinks:load', function() {
   // クリックイベントを登録
-  st.onclick = () => { jsonGet(); };
-  sp.onclick = () => { stop(); }; 
+  st.onclick = () => {
+    loop();
+  };
 })
