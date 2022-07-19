@@ -3,7 +3,7 @@
     <%= form_with model: event, local: true do |form| %>
       <%= render 'shared/error_messages', model: form.object %>`
 
-      <div class="row mt-5 mb-3 h3">
+      <div class="mt-5 mb-3 h3">
         <div>
           <%= form.label :title, class: "col-form-label" %>
         </div>
@@ -12,11 +12,20 @@
         </div>
 
         <div>
-          <%= form.label :mode, class: "col-form-label" %>
+          <div class="row">
+            <div class="col-4">
+            </div>
 
-          <!-- Button trigger modal -->
-          <i type="button" class="h6 fa-solid fa-circle-info" style="color: grey;" data-bs-toggle="modal" data-bs-target="#exampleModal">
-          </i>
+            <div class="col-4">
+              <%= form.label :mode, class: "col-form-label" %>
+            </div>
+
+            <!-- Button trigger modal -->
+            <div class="col-1">
+              <i type="button" class="h6 fa-solid fa-circle-info" style="color: grey;" data-bs-toggle="modal" data-bs-target="#exampleModal">
+              </i>
+            </div>
+          </div>
 
           <!-- Modal -->
           <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -78,12 +87,12 @@
           </div>
         </div>
         <div class="h5 mb-3">
-          <%= form.select :mode, Event.modes.keys.map { |k| [I18n.t("enums.event.mode.#{k}"), k] }, {}, class: "col-form-control", onchange: "viewChange()" %>
+          <%= form.select :mode, Event.modes.keys.map { |k| [I18n.t("enums.event.mode.#{k}"), k] }, {}, class: "col-form-control", id: "event_mode", onchange: "viewChange()" %>
         </div>
 
         <%= form.fields_for :gamble do |g| %>
           <div>
-            <i class="fa-solid fa-coins" style="color: yellow;"></i>
+            <i class="fa-solid fa-coins"></i>
             <%= g.label :total_amount, class: "col-form-label" %>
           </div>
           <div class="h5 mb-3">
@@ -108,4 +117,3 @@
     <% end %>
   </div>
 </div>
-<%= javascript_pack_tag 'event' %>

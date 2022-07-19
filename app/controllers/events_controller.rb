@@ -8,6 +8,13 @@ class EventsController < ApplicationController
 
   def show
     @joined_users = @event.joining_users.order(rooms: :asc)
+    @members = @event.gamble
+    
+    respond_to do |format|
+      format.html
+
+      format.json { render json: @members}
+    end
   end
 
   def new
