@@ -55,11 +55,12 @@
       </div>
     </div>
     <% if @event.created_by?(current_user) %>
-      <div class="outline">
-        <div class="roulette" id="roulette"><%= @event.user.name %></div>
-      </div>
+      <%# <div class="outline"> %>
+      <%#   <div class="roulette" id="roulette"><%= @event.user.name %1></div> %>
+      <%# </div> %>
       <div class="my-3">
-        <%= link_to 'スタート', equal_event_rooms_path(@event), {method: :post, class: "btn btn-primary #{ 'disabled' if @event.counts > 0 }", remote: true, id: "st"} %>
+        <%# <%= link_to 'スタート', equal_event_rooms_path(@event), {method: :post, class: "btn btn-primary #{ 'disabled' if @event.counts > 0 }", remote: true, id: "st"} %1> %>
+        <%= link_to 'スタート', equal_event_rooms_path(@event), {method: :post, class: "btn btn-primary #{ 'disabled' if @event.counts > 0 }", data: { confirm: '始めますか？' }} %>
       </div>
     <% end %>
     <% if @event.counts > 0 %>
