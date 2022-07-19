@@ -1,23 +1,3 @@
-<%# ----------- 割振モード ----------- %>
-
-<% if @event.mode == 'share' %>
-  <h1>割振</h1>
-  <p>金額:<%= @event.gamble.total_amount %>円</p>
-  <% @joined_users.each do |joined_user| %>
-    <div><%= image_tag joined_user.picture_url, class: 'rounded-circle', size: '50x50' %></div>
-    <div><%= joined_user.name %></div>
-  <% end %>
-  <% if @event.created_by?(current_user) %>
-    <div>
-      <%= link_to 'スタート', mode_event_rooms_path(@event), {method: :post, class: "btn btn-primary #{ 'disabled' if @event.counts > 0 }", data: { confirm: '始めますか？' }} %>
-    </div>
-  <% end %>
-  <% if @event.counts > 0 %>
-    <% @joined_users.each do |joined_user| %>
-      <div><%= image_tag joined_user.picture_url, class: 'rounded-circle', size: '50x50' %><%= @event.gamble.total_amount %></div>
-    <% end %>
-  <% end %>
-
 <%# ----------- 平等モード ----------- %>
 
 <% elsif @event.mode == 'equal' %>
@@ -60,7 +40,7 @@
       <%# </div> %>
       <div class="my-3">
         <%# <%= link_to 'スタート', equal_event_rooms_path(@event), {method: :post, class: "btn btn-primary #{ 'disabled' if @event.counts > 0 }", remote: true, id: "st"} %1> %>
-        <%= link_to 'スタート', equal_event_rooms_path(@event), {method: :post, class: "btn btn-primary #{ 'disabled' if @event.counts > 0 }", data: { confirm: '始めますか？' }} %>
+        <%= link_to 'スタート', event_modes_equal_path(@event), {method: :post, class: "btn btn-primary #{ 'disabled' if @event.counts > 0 }", data: { confirm: '始めますか？' }} %>
       </div>
     <% end %>
     <% if @event.counts > 0 %>
@@ -136,7 +116,7 @@
     </div>
     <% if @event.created_by?(current_user) %>
       <div class="mb-3">
-        <%= link_to 'スタート', unit_event_rooms_path(@event), {method: :post, class: "btn btn-primary #{ 'disabled' if @event.counts > 0 }", data: { confirm: '始めますか？' }} %>
+        <%= link_to 'スタート', event_modes_unit_path(@event), {method: :post, class: "btn btn-primary #{ 'disabled' if @event.counts > 0 }", data: { confirm: '始めますか？' }} %>
       </div>
     <% end %>
     <% if @event.counts > 0 %>
@@ -168,7 +148,7 @@
           <script src="https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js" async="async" defer="defer"></script>
         </div>
 
-        <div class="mt-4">
+        <div class="my-4">
           <%= link_to '割り勘一覧', events_path %>
         </div>
       </div>
