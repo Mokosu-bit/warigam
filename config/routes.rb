@@ -5,8 +5,10 @@ Rails.application.routes.draw do
   resources :events do
     resource :rooms, only: %i[show] do
       collection do
-        post 'equal'
-        post 'unit'
+        namespace :modes do
+          resource :equal, only: %i[create]
+          resource :unit, only: %i[create]
+        end
       end
     end
     resource :join, only: %i[create destroy]
