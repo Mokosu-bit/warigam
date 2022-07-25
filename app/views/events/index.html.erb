@@ -1,4 +1,4 @@
-<div class="container justify-content-center text-center">
+<div class="container justify-content-center text-center pb-5">
   <% if @events.empty? %>
     <div class="row">
       <div class="no-event">
@@ -44,4 +44,5 @@
       <% end %>
     <% end %>
   <% end %>
+  <%= paginate @events %>
 </div>
