@@ -4,11 +4,4 @@ class UsersController < ApplicationController
     joined_events = @user.joining_events
     @finished_events = joined_events.where(counts: 1).page(params[:page]).per(5)
   end
-
-  def edit; end
-
-  def update
-  end
-
-  private
 end
