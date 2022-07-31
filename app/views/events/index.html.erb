@@ -17,7 +17,7 @@
     </div>
     <% @events.each do |event| %>
       <% if event.counts.zero? %>
-        <div class="card row mb-5 col-10 mx-auto border-info border-3">
+        <div class="card row mb-5 col-10 mx-auto border-success border-3">
           <%= link_to event_path(event), class: 'event-link' do %>
             <div class="card-body flex">
               <div class="h4 mt-1"><%= event.title %></div>

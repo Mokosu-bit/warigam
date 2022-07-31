@@ -6,11 +6,16 @@
 
   
   <div class="my-5">
-    <div class="my-5">過去に参加したイベント</div>
+    <div class="row justify-content-center">
+      <div class="h5">過去の割り勘</div>
+      <div class="col-10 border border-success">
+    </div>
+  </div>
 
+  <div class="my-5">
     <% if @finished_events.present? %>
       <% @finished_events.each do |event| %>
-        <div class="card row mb-5 col-10 mx-auto border-info border-3">
+        <div class="card row mb-5 col-10 mx-auto border-success border-3">
           <%= link_to event_rooms_path(event), class: 'event-link' do %>
             <div class="card-body flex">
               <div class="h4 mt-1"><%= event.title %></div>
