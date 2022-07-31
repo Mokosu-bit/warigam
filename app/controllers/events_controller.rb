@@ -3,7 +3,7 @@ class EventsController < ApplicationController
   before_action :move_to_signed_in
 
   def index
-    @events = current_user.events.under.order(events: :asc).page(params[:page]).per(5)
+    @events = current_user.events.under.order(events: :desc).page(params[:page]).per(5)
   end
 
   def show
