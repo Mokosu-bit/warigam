@@ -10,7 +10,7 @@
 
     <% if @finished_events.present? %>
       <% @finished_events.each do |event| %>
-        <div class="card row mb-5 col-10 mx-auto">
+        <div class="card row mb-5 col-10 mx-auto border-info border-3">
           <%= link_to event_rooms_path(event), class: 'event-link' do %>
             <div class="card-body flex">
               <div class="h4 mt-1"><%= event.title %></div>

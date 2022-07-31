@@ -5,12 +5,12 @@
         <div class="h3"><%= @event.title %></div>
       </div>
 
-      <div class="mb-3">
-        <div class="h5"><%= @event.mode_i18n %></div>
+      <div class="mb-3 h3">
+        <div class="badge bg-info"><%= @event.mode_i18n %></div>
       </div>
 
       <div class="mb-3">
-        <div class="h5"><i class="fa-solid fa-coins" style="color: yellow;"></i> <%= @event.gamble.total_amount %>円</div>
+        <div class="h5"><i class="fa-solid fa-coins"></i> <%= @event.gamble.total_amount %>円</div>
       </div>
 
       <div class="row justify-content-center mb-3">
@@ -37,7 +37,7 @@
           <%# <% end %1> %>
         <% else %>
           <%= link_to event_join_path(@event), method: :post, data: { confirm: "参加しますか？\n※一度参加すると逃げられません。" } do %>
-            <div class="btn btn-primary">参加</div>
+            <div class="btn btn-info rounded-pill">参加</div>
           <% end %>
         <% end %>
       </div>
@@ -55,7 +55,7 @@
 
       <div class="mb-3">
         <%= link_to event_rooms_path(@event) do %>
-          <div class="btn btn-primary">ルームに入室する</div>
+          <div class="btn box rounded-pill">ルームに入室する</div>
         <% end %>
       </div>
       
@@ -68,7 +68,7 @@
           </div>
           <div class="col-4">
             <%= link_to event_path, method: :delete, data: { confirm: 'イベントを削除してよろしいですか？' }, class: 'col-auto h2 hover-target text-center simple-a-tag' do %>
-              <i class="fa-solid fa-trash"></i>
+              <i class="fa-solid fa-trash" style="color: red"></i>
             <% end %>
           </div>
         <% end %>
