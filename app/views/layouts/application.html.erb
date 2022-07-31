@@ -15,12 +15,15 @@
   </head>
 
   <body>
-    <%= render 'shared/header'%>
+    <%= render 'shared/header' %>
     <div class="notifications">
-      <%= render 'shared/flash'%>
+      <%= render 'shared/flash' %>
     </div>
-    <div class="background">
-      <%= yield %>
+    <div class="background my-5">
+      <div class="py-5">
+        <%= yield %>
+      </div>
     </div>
+    <%= render 'shared/footer' %>
   </body>
 </html>
