@@ -11,4 +11,32 @@ module ApplicationHelper
       use_path: true
     )
   end
+
+  def default_meta_tags
+    {
+      site: 'WARIGAM',
+      title: '',
+      reverse: true,
+      description: 'ギャンブル要素のある割り勘サービスです。ドキドキ感が楽しめます。',
+      keywords: '割り勘,ギャンブル,食事,買い物',
+      canonical: request.original_url,
+      separator: '|',
+      icon: [
+        { href: image_url('favicon.ico') },
+      ],
+      og: {
+        site_name: :site,
+        title: :title,
+        description: :description,
+        type: 'website',
+        url: request.original_url,
+        image: image_url('ogp.png'),
+        locale: 'ja_JP',
+      },
+      twitter: {
+        card: 'summary_large_image',
+        site: '@mokosu755',
+      }
+    }
+  end
 end
