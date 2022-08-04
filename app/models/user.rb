@@ -31,6 +31,10 @@ class User < ApplicationRecord
     save!
   end
 
+  def remember_me
+    true
+  end
+
   # join event
 
   def join(event)
