@@ -11,16 +11,20 @@
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome-animation/0.0.10/font-awesome-animation.css" type="text/css" media="all" />
+    <%= render 'layouts/google_analytics' if Rails.env.production? %>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   </head>
 
   <body>
-    <%= render 'shared/header'%>
+    <%= render 'shared/header' %>
     <div class="notifications">
-      <%= render 'shared/flash'%>
+      <%= render 'shared/flash' %>
     </div>
-    <div class="background">
-      <%= yield %>
+    <div class="background my-5">
+      <div class="py-5">
+        <%= yield %>
+      </div>
     </div>
+    <%= render 'shared/footer' %>
   </body>
 </html>

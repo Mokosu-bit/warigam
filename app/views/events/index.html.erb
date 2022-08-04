@@ -3,7 +3,7 @@
     <div class="row">
       <div class="no-event">
         <%= link_to new_event_path do %>
-          <div class="btn btn-primary">割り勘をする</div>
+          <div class="btn box rounded-pill">割り勘をする</div>
         <% end %>
       </div>
     </div>
@@ -11,13 +11,13 @@
     <div class="row">
       <div class="mb-3 mt-4">
         <%= link_to new_event_path do %>
-          <div class="btn btn-primary">割り勘をする</div>
+          <div class="btn box rounded-pill">割り勘をする</div>
         <% end %>
       </div>
     </div>
     <% @events.each do |event| %>
       <% if event.counts.zero? %>
-        <div class="card row mb-5 col-10 mx-auto">
+        <div class="card row mb-5 col-10 mx-auto border-success border-3">
           <%= link_to event_path(event), class: 'event-link' do %>
             <div class="card-body flex">
               <div class="h4 mt-1"><%= event.title %></div>

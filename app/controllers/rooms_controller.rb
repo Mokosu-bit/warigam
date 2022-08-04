@@ -23,22 +23,7 @@ class RoomsController < ApplicationController
       @unit = []
       unit_s = @event.gamble.total_amount.to_s.chars
       unit_i = unit_s.map(&:to_i).reverse
-      unit_i.each_with_index do |unit, index|
-        @unit <<
-          if index == 0
-            unit * 1
-          elsif index == 1
-            unit * 10
-          elsif index == 2
-            unit * 100
-          elsif index == 3
-            unit * 1000
-          elsif index == 4
-            unit * 10_000
-          else
-            0
-          end
-      end
+      @unit << unit_i.map.with_index{|unit, index| unit * (10 ** index)}
 
     # ----------- モードなし -----------
     else

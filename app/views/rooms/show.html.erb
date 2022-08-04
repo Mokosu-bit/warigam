@@ -40,7 +40,7 @@
       <%# </div> %>
       <div class="my-3">
         <%# <%= link_to 'スタート', equal_event_rooms_path(@event), {method: :post, class: "btn btn-primary #{ 'disabled' if @event.counts > 0 }", remote: true, id: "st"} %1> %>
-        <%= link_to 'スタート', event_modes_equal_path(@event), {method: :post, class: "btn btn-primary #{ 'disabled' if @event.counts > 0 }", data: { confirm: '始めますか？' }} %>
+        <%= link_to 'スタート', event_modes_equal_path(@event), {method: :post, class: "btn box rounded-pill #{ 'disabled' if @event.counts > 0 }", data: { confirm: '始めますか？' }} %>
       </div>
     <% end %>
     <% if @event.counts > 0 %>
@@ -116,7 +116,7 @@
     </div>
     <% if @event.created_by?(current_user) %>
       <div class="mb-3">
-        <%= link_to 'スタート', event_modes_unit_path(@event), {method: :post, class: "btn btn-primary #{ 'disabled' if @event.counts > 0 }", data: { confirm: '始めますか？' }} %>
+        <%= link_to 'スタート', event_modes_unit_path(@event), {method: :post, class: "btn box rounded-pill #{ 'disabled' if @event.counts > 0 }", data: { confirm: '始めますか？' }} %>
       </div>
     <% end %>
     <% if @event.counts > 0 %>
@@ -136,7 +136,7 @@
           <% end %>
         </div>
         <div class="col-6 mt-2">
-          <% @unit.each do |unit|%>
+          <% @unit[0].each do |unit|%>
             <div class="mt-3 mb-5 pb-3 h2">
               <div><%= unit %>円</div>
             </div>

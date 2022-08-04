@@ -7,23 +7,12 @@ class Modes::UnitsController < ApplicationController
       pre_unit = []
       unit_s = event.gamble.total_amount.to_s.chars
       unit_i = unit_s.map(&:to_i).reverse
-      unit_i.each_with_index do |unit, index|
-        pre_unit <<
-          if index == 0
-            unit * 1
-          elsif index == 1
-            unit * 10
-          elsif index == 2
-            unit * 100
-          elsif index == 3
-            unit * 1000
-          elsif index == 4
-            unit * 10_000
-          else
-            0
-          end
+      pre_unit << unit_i.map.with_index{|unit, index| unit * (10 ** index)}
+      event.update(results: joined_users.sample(unit_s.length))
+      er = event.results
+      er.each_with_index do |event, index|
+        event.rooms.last.update(payment: pre_unit[0][index])
       end
-      event.update(results: joined_users.sample(pre_unit.length))
       redirect_to event_rooms_path
     else
       redirect_to events_path
