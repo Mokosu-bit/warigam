@@ -15,7 +15,7 @@ module ApplicationHelper
   def default_meta_tags
     {
       site: 'WARIGAM',
-      title: '',
+      title: 'WARIGAM',
       reverse: true,
       description: 'ギャンブル要素のある割り勘サービスです。ドキドキ感が楽しめます。',
       keywords: '割り勘,ギャンブル,食事,買い物',
