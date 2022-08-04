@@ -1,7 +1,13 @@
 <div class="container justify-content-center text-center pb-5">
-  <div class="pt-5 h3">
-    <div class="mb-3"><%= image_tag @user.picture_url, class: 'rounded-circle', size: '80x80' %></div>
-    <div><%= @user.name %></div>
+    <div class="pt-5 h3">
+      <% if current_user.picture_url.present? %>
+        <div class="mb-3"><%= image_tag @user.picture_url, class: 'rounded-circle', size: '80x80' %></div>
+      <% else %>
+        <div class="mb-3"><%= image_tag 'user-icon.png', class: 'rounded-circle', size: '80x80' %></div>
+      <% end %>
+    <div class="h1"><%= @user.name %></div>
+    <div class="h4 mt-5">累計金額</div>
+    <div class="h1" style="color: blue;"><%= @payment_amount %></div>
   </div>
 
   
@@ -19,6 +25,7 @@
           <%= link_to event_rooms_path(event), class: 'event-link' do %>
             <div class="card-body flex">
               <div class="h4 mt-1"><%= event.title %></div>
+              <div><i class="fa-solid fa-coins"></i> <%= event.rooms.find_by(user_id: @user).payment %></div>
               <div><%= event.created_at.strftime('%m/%d %H:%M')%></div>
             </div>
           <% end %>
