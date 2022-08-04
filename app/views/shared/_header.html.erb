@@ -40,7 +40,9 @@
             </li>
           <% else %>
             <li class="nav-item my-auto mx-2">
-              <%= link_to 'ログイン', user_line_omniauth_authorize_path, class: "nav-link text-white", method: :post %>
+              <%= link_to user_line_omniauth_authorize_path, class: "nav-link text-white", method: :post do %>
+                <i class="fa-solid fa-right-to-bracket"></i> ログイン
+              <% end %>
             </li>
           <% end %>
         </ul>
