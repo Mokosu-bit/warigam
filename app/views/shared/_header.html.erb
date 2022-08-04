@@ -12,21 +12,31 @@
       <div class="collapse navbar-collapse justify-content-end" id="Navber">
         <ul class="navbar-nav mr-auto mb-md-0">
           <li class="nav-item my-auto mx-2">
-            <%= link_to '割り勘一覧', events_path, class: "nav-link text-white" %>
+            <%= link_to events_path, class: "nav-link text-white" do %>
+              <i class="fa-solid fa-rectangle-list"></i> 一覧
+            <% end %>
           </li>
           <li class="nav-item my-auto mx-2">
-            <%= link_to '割り勘作成', new_event_path, class: "nav-link text-white" %>
+            <%= link_to new_event_path, class: "nav-link text-white" do %>
+              <i class="fa-solid fa-people-group"></i> 作成
+            <% end %>
           </li>
           <li class="nav-item my-auto mx-2">
-            <%= link_to '使い方', tutorial_path, class: "nav-link text-white" %>
+            <%= link_to tutorial_path, class: "nav-link text-white" do %>
+              <i class="fa-solid fa-book-open"></i> 使い方
+            <% end %>
           </li>
 
           <% if user_signed_in? %>
           <li class="nav-item my-auto mx-2">
-            <%= link_to 'マイページ', user_path(current_user), class: "nav-link text-white" %>
+            <%= link_to user_path(current_user), class: "nav-link text-white" do %>
+              <i class="fa-solid fa-user"></i> マイページ
+            <% end %>
           </li>
             <li class="nav-item my-auto mx-2">
-              <%= link_to 'ログアウト', logout_path, class: "nav-link text-white", method: :delete %>
+              <%= link_to logout_path, class: "nav-link text-white", method: :delete do %>
+                <i class="fa-solid fa-right-from-bracket"></i> ログアウト
+              <% end %>
             </li>
           <% else %>
             <li class="nav-item my-auto mx-2">
