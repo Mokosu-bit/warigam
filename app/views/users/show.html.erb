@@ -7,7 +7,7 @@
       <% end %>
     <div class="h1"><%= @user.name %></div>
     <div class="h4 mt-5">累計金額</div>
-    <div class="h1" style="color: blue;"><%= @payment_amount %></div>
+    <div class="h1" style="color: blue;"><%= @payment_amount.round.to_s(:delimited) %>円</div>
   </div>
 
   
@@ -25,7 +25,7 @@
           <%= link_to event_rooms_path(event), class: 'event-link' do %>
             <div class="card-body flex">
               <div class="h4 mt-1"><%= event.title %></div>
-              <div><i class="fa-solid fa-coins"></i> <%= event.rooms.find_by(user_id: @user).payment %></div>
+              <div><i class="fa-solid fa-coins"></i> <%= event.rooms.find_by(user_id: @user).payment.round.to_s(:delimited) %>円</div>
               <div><%= event.created_at.strftime('%m/%d %H:%M')%></div>
             </div>
           <% end %>
