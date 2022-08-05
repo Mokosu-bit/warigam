@@ -22,7 +22,7 @@ module ApplicationHelper
       canonical: request.original_url,
       icon: [
         { href: image_url('favicon.ico') },
-        { href: image_url('apple-touch-icon.png'), rel: 'apple-touch-icon' }
+        { href: image_url('apple-touch-icon.PNG'), rel: 'apple-touch-icon' }
       ],
       og: {
         site_name: :site,
