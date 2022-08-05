@@ -1,17 +1,12 @@
 class ApplicationController < ActionController::Base
-  # before_action :store_current_location, if: :storable_location?
+  before_action :ensure_domain
+  FQDN = 'www.warigam.jp'
 
-  # private
+  # redirect correct server from herokuapp domain for SEO
+  def ensure_domain
+  return unless /\.herokuapp.com/ =~ request.host
 
-  # def storable_location?
-  #   !devise_controller?
-  # end
-
-  # def store_current_location
-  #   store_location_for(:user, request.url)
-  # end
-
-  # def after_sign_in_path_for(resource)
-  #   store_location_for(resource) || root_path
-  # end
+  port = ":#{request.port}" unless [80, 443].include?(request.port)
+  redirect_to "#{request.protocol}#{FQDN}#{port}#{request.path}", status: :moved_permanently
+  end
 end

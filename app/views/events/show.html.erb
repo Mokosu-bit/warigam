@@ -10,7 +10,7 @@
       </div>
 
       <div class="mb-3">
-        <div class="h5"><i class="fa-solid fa-coins"></i> <%= @event.gamble.total_amount %>円</div>
+        <div class="h5"><i class="fa-solid fa-coins"></i> <%= @event.gamble.total_amount.round.to_s(:delimited) %>円</div>
       </div>
 
       <div class="row justify-content-center mb-3">
@@ -48,7 +48,7 @@
             <%= qrcode.html_safe %>
           </div>
 
-          <div class="line-it-button" data-lang="ja" data-type="share-a" data-env="REAL" data-url="https://warigam.herokuapp.com/events/<%= @event.hashid %>" data-color="default" data-size="small" data-count="false" data-ver="3" style="display: none;"></div>
+          <div class="line-it-button" data-lang="ja" data-type="share-a" data-env="REAL" data-url="https://www.warigam.jp/events/<%= @event.hashid %>" data-color="default" data-size="small" data-count="false" data-ver="3" style="display: none;"></div>
           <script src="https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js" async="async" defer="defer"></script>
         <% end %>
       </div>

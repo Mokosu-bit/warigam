@@ -7,7 +7,7 @@
         金額
       </div>
       <div class="col-6">
-        <%= @event.gamble.total_amount %>円
+        <%= @event.gamble.total_amount.round.to_s(:delimited) %>円
       </div>
 
       <div class="col-6 my-3">
@@ -69,13 +69,13 @@
             1人あたり
           </div>
           <div class="col-6">
-            <%= @equal_amount %>円
+            <%= @equal_amount.round.to_s(:delimited) %>円
           </div>
         </div>
       </div>
 
       <div class="mt-4">
-        <div class="line-it-button" data-lang="ja" data-type="share-a" data-env="REAL" data-url="https://warigam.herokuapp.com/events/<%= @event.hashid %>/rooms" data-color="default" data-size="small" data-count="false" data-ver="3" style="display: none;"></div>
+        <div class="line-it-button" data-lang="ja" data-type="share-a" data-env="REAL" data-url="https://www.warigam.jp/events/<%= @event.hashid %>/rooms" data-color="default" data-size="small" data-count="false" data-ver="3" style="display: none;"></div>
         <script src="https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js" async="async" defer="defer"></script>
       </div>
 
@@ -95,7 +95,7 @@
         金額
       </div>
       <div class="col-6">
-        <%= @event.gamble.total_amount %>円
+        <%= @event.gamble.total_amount.round.to_s(:delimited) %>円
       </div>
     </div>
     <div class="row justify-content-center mb-3">
@@ -138,13 +138,13 @@
         <div class="col-6 mt-2">
           <% @unit[0].each do |unit|%>
             <div class="mt-3 mb-5 pb-3 h2">
-              <div><%= unit %>円</div>
+              <div><%= unit.round.to_s(:delimited) %>円</div>
             </div>
           <% end %>
         </div>
 
         <div class="mt-4">
-          <div class="line-it-button" data-lang="ja" data-type="share-a" data-env="REAL" data-url="https://warigam.herokuapp.com/events/<%= @event.hashid %>/rooms" data-color="default" data-size="small" data-count="false" data-ver="3" style="display: none;"></div>
+          <div class="line-it-button" data-lang="ja" data-type="share-a" data-env="REAL" data-url="https://www.warigam.jp/events/<%= @event.hashid %>/rooms" data-color="default" data-size="small" data-count="false" data-ver="3" style="display: none;"></div>
           <script src="https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js" async="async" defer="defer"></script>
         </div>
 
