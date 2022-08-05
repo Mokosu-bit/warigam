@@ -15,18 +15,17 @@ module ApplicationHelper
   def default_meta_tags
     {
       site: 'WARIGAM',
-      title: 'WARIGAM',
+      title: '',
       reverse: true,
       description: 'ギャンブル要素のある割り勘サービスです。ドキドキ感が楽しめます。',
       keywords: '割り勘,ギャンブル,食事,買い物',
       canonical: request.original_url,
-      separator: '|',
       icon: [
         { href: image_url('favicon.ico') },
       ],
       og: {
         site_name: :site,
-        title: :title,
+        title: 'WARIGAM',
         description: :description,
         type: 'website',
         url: request.original_url,
