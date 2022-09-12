@@ -21,4 +21,14 @@ class Event < ApplicationRecord
 
     user_id == user.id
   end
+
+  def equals(joined_users)
+    self.update(counts: 1)
+    self.update(results: joined_users.sample(self.gamble.people_number))
+    er = self.results
+    amount = self.gamble.total_amount / self.gamble.people_number
+    er.each do |event|
+      event.rooms.last.update(payment: amount)
+    end
+  end
 end
