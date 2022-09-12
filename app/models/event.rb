@@ -21,4 +21,27 @@ class Event < ApplicationRecord
 
     user_id == user.id
   end
+
+  def equals(joined_users)
+    self.update(counts: 1)
+    self.update(results: joined_users.sample(self.gamble.people_number))
+    er = self.results
+    amount = self.gamble.total_amount / self.gamble.people_number
+    er.each do |event|
+      event.rooms.last.update(payment: amount)
+    end
+  end
+
+  def units(joined_users)
+    self.update(counts: 1)
+    pre_unit = []
+    unit_s = self.gamble.total_amount.to_s.chars
+    unit_i = unit_s.map(&:to_i).reverse
+    pre_unit << unit_i.map.with_index{|unit, index| unit * (10 ** index)}
+    self.update(results: joined_users.sample(unit_s.length))
+    er = self.results
+    er.each_with_index do |event, index|
+      event.rooms.last.update(payment: pre_unit[0][index])
+    end
+  end
 end
