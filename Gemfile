@@ -48,7 +48,7 @@ gem 'rqrcode', '~> 2.0'
 # ID Hash
 gem 'hashid-rails'
 
-# Page 
+# Page
 gem 'kaminari'
 
 # SEO
