@@ -4,9 +4,9 @@ class ApplicationController < ActionController::Base
 
   # redirect correct server from herokuapp domain for SEO
   def ensure_domain
-  return unless /\.herokuapp.com/ =~ request.host
+    return unless /\.herokuapp.com/.match?(request.host)
 
-  port = ":#{request.port}" unless [80, 443].include?(request.port)
-  redirect_to "#{request.protocol}#{FQDN}#{port}#{request.path}", status: :moved_permanently
+    port = ":#{request.port}" unless [80, 443].include?(request.port)
+    redirect_to "#{request.protocol}#{FQDN}#{port}#{request.path}", status: :moved_permanently
   end
 end
