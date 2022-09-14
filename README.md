@@ -8,14 +8,14 @@
 ![rails](https://img.shields.io/badge/Rails-v6.1.4-red)
 
 | トップページ | 作成 | 招待 |
-|----------|------|-----|
+|:---:|:---:|:---:|
 |![top-warigam](https://user-images.githubusercontent.com/85389148/190243257-e51b49a1-f881-4b96-a412-703d98b82a53.png)|![create-event](https://user-images.githubusercontent.com/85389148/190242345-61262183-f480-449d-ae84-eda5d1025045.png)|![wait](https://user-images.githubusercontent.com/85389148/190243731-1b1ef954-c562-43f9-a5ca-00eb952749da.png)|
-| 　　作成した割り勘が表示されます | 　　　　割り勘を作成します | 　　　　QR or LINE で招待します |
+| 作成した割り勘が表示されます | 割り勘を作成します | QR or LINE で招待します |
 
 | 参加 | ルーム | 実行 |
-|-----|-------|-----|
+|:---:|:---:|:---:|
 |![ready](https://user-images.githubusercontent.com/85389148/190244189-1ade0f98-cddd-4b09-9bef-b99cfd9034b3.png)|![ready-room](https://user-images.githubusercontent.com/85389148/190246120-e79bdd46-af1a-402d-a142-ca7d28280575.png)|![finish-room](https://user-images.githubusercontent.com/85389148/190246687-23e30a21-7830-445b-8467-fc3858f9bab9.png)|
-| 　　　　　　参加後の画面 | 　　　　　　割り勘前の画面 | 　　　　　　割り勘後の画面 |
+| 参加後の画面 | 割り勘前の画面 | 割り勘後の画面 |
 
 ### ターゲットユーザー
 
