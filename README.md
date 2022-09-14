@@ -33,6 +33,31 @@
 - 楽しく割り勘することで、先輩・後輩を関係なくする
 - 複数の割り勘方法で、楽しめるようにする
 
+## 使用技術
+**フロントエンド**
+<ul>
+  <li>JavaScript</li>
+</ul>
+
+**バックエンド**
+<ul>
+  <li>Ruby 3.0.0</li>
+  <li>Rails 6.1.4</li>
+  <details>
+    <summary>主要gem</summary>
+    <ul>
+      <li><a href="https://github.com/heartcombo/devise">devise</a></li>
+      <li><a href="https://github.com/whomwah/rqrcode">rqrcode</a></li>
+      <li><a href="https://github.com/kpumuk/meta-tags">meta-tags</a></li>
+      <li><a href="https://github.com/kaminari/kaminari">kaminari</a></li>
+      <li><a href="https://github.com/rubocop/rubocop">rubocop</a></li>
+    </ul>
+  </deatails>
+</ul>
+  
+**インフラ**
+- Heroku
+- PostgreSQL
 
 ## 画面遷移図
 [figma](https://www.figma.com/file/D0fvPI8ZKFzfRTnjo9cc2d/WariGam?node-id=0%3A1)
